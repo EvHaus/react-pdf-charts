@@ -6,7 +6,10 @@
 	"author": "Ev Haus",
 	"homepage": "https://github.com/EvHaus/react-pdf-charts",
 	"type": "module",
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
+		"dist": "bun ./build.ts",
 		"lint": "bun typescript && bun rome:format && bun rome:lint && bun packagelint",
 		"packagelint": "prettier-package-json --use-tabs --write ./package.json",
 		"rome:format": "rome format --write .",
@@ -19,6 +22,11 @@
 		"@react-pdf/types": "^2.3.3",
 		"html-react-parser": "^4.0.0"
 	},
+	"peerDependencies": {
+		"@react-pdf/renderer": "^3.1.12",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
 	"devDependencies": {
 		"@types/node": "20.3.1",
 		"@types/react": "18.2.14",
@@ -29,9 +37,7 @@
 		"rome": "12.1.3",
 		"typescript": "5.1.3"
 	},
-	"peerDependencies": {
-		"@react-pdf/renderer": "^3.1.12",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+	"engines": {
+		"node": ">=16"
 	}
 }

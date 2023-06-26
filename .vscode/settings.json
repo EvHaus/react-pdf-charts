@@ -1,0 +1,21 @@
+{
+	"[javascript]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports.rome": true
+	}
+}
