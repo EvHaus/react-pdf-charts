@@ -1,5 +1,10 @@
 colors: false
 
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit ""
+
 pre-commit:
   parallel: true
   skip:
