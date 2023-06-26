@@ -28,12 +28,12 @@ import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-type TagElementType = Element & { children?: Array<Element & ChildNode> };
+type TagElementType = Element & { children?: Array<Element & Element> };
 
 type PropsType = {
 	children: React.ReactElement;
 	debug?: boolean;
-	rechartStyle?: Style;
+	chartStyle?: Style;
 	style?: Style;
 };
 
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-// Some times recharts will render numbers with units (like "em") which aren't
+// Some times charts will render numbers with units (like "em") which aren't
 // supported in react-pdf. This function can be used to convert into a best-
 // guess in supported units.
 const convertUnits = (value: string) => {
@@ -111,7 +111,7 @@ const getTspanChildrenOffsets = (node: TagElementType) => {
 };
 
 // Converts a web-based SVG element to a react-pdf SVG element
-const webSvgToPdfSvg = (children: React.ReactElement, rechartStyle?: Style) => {
+const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 	const svgString = renderToStaticMarkup(children);
 
 	const htmlReactParserOptions: HTMLReactParserOptions = {
@@ -119,8 +119,8 @@ const webSvgToPdfSvg = (children: React.ReactElement, rechartStyle?: Style) => {
 	};
 
 	// This function is where the main magic happens. This converts the <svg />
-	// elements created by `recharts` into <Svg /> components that react-pdf can
-	// understand.
+	// elements created by charting libraries into <Svg /> components that
+	// react-pdf can understand.
 	function replaceHtmlWithPdfSvg(node: DOMNode): React.ReactElement | null {
 		if (node.type === 'text') return <>{(node as TextNode).data}</>;
 
@@ -296,9 +296,9 @@ const webSvgToPdfSvg = (children: React.ReactElement, rechartStyle?: Style) => {
 						attribs.class.split(' ').forEach((className) => {
 							// @ts-expect-error Not sure how to fix this
 							if (className in styles) textStyle.push(styles[className]);
-							if (rechartStyle && className in rechartStyle)
+							if (chartStyle && className in chartStyle)
 								// @ts-expect-error Not sure how to fix this
-								textStyle.push(rechartStyle[className]);
+								textStyle.push(chartStyle[className]);
 						});
 					}
 
@@ -332,18 +332,22 @@ const webSvgToPdfSvg = (children: React.ReactElement, rechartStyle?: Style) => {
 					// See: https://github.com/diegomura/react-pdf/issues/1271
 					return <Tspan {...baseProps}>{children}</Tspan>;
 			}
+
+			throw new Error(
+				`Your chart rendered a <${name} /> node which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
+			);
 		}
 
 		throw new Error(
-			`Your rechart rendered a <${name} /> node which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
+			`Your chart rendered a node type (${node.type}) which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
 		);
 	}
 
 	return parse(svgString, htmlReactParserOptions);
 };
 
-const ReactPDFChart = ({ children, debug, rechartStyle, style }: PropsType) => {
-	const component = webSvgToPdfSvg(children, rechartStyle);
+const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
+	const component = webSvgToPdfSvg(children, chartStyle);
 
 	// This should never happen, but it's here for type safety
 	if (!component || typeof component === 'string') return component;

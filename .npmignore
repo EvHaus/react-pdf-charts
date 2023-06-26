@@ -1,3 +1,4 @@
+.github
 .vscode
 build.ts
 bun.lockb
@@ -5,7 +6,6 @@ bun.toml
 examples
 lefthook.yml
 README.md
-renovate.json
 rome.json
 src
 tsconfig.json

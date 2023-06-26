@@ -7,7 +7,6 @@
 	"homepage": "https://github.com/EvHaus/react-pdf-charts",
 	"type": "module",
 	"exports": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"scripts": {
 		"dist": "bun ./build.ts",
 		"lint": "bun typescript && bun rome:format && bun rome:lint && bun packagelint",
@@ -18,6 +17,7 @@
 		"test": "bun lint",
 		"typescript": "tsc --noEmit"
 	},
+	"types": "./dist/index.d.ts",
 	"dependencies": {
 		"@react-pdf/types": "^2.3.3",
 		"html-react-parser": "^4.0.0"
@@ -31,6 +31,7 @@
 		"@types/node": "20.3.1",
 		"@types/react": "18.2.14",
 		"@types/react-dom": "18.2.6",
+		"bun-types": "0.6.9",
 		"lefthook": "1.4.3",
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.7.2",
