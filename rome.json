@@ -1,0 +1,44 @@
+{
+	"$schema": "./node_modules/rome/configuration_schema.json",
+	"formatter": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noAccessKey": "error",
+				"noAutofocus": "off"
+			},
+			"complexity": {
+				"noUselessFragments": "error"
+			},
+			"correctness": {
+				"noUnusedVariables": "error"
+			},
+			"nursery": {
+				"noAccumulatingSpread": "error",
+				"noAriaUnsupportedElements": "error",
+				"noConfusingArrow": "error",
+				"noConsoleLog": "error",
+				"useHeadingContent": "error",
+				"useLiteralEnumMembers": "error",
+				"useLiteralKeys": "error",
+				"noNoninteractiveTabindex": "error",
+				"noRedundantRoles": "error",
+				"useExhaustiveDependencies": "error",
+				"useGroupedTypeImport": "error",
+				"useSimpleNumberKeys": "error"
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	}
+}

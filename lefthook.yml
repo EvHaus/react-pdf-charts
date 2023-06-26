@@ -1,0 +1,25 @@
+colors: false
+
+pre-commit:
+  parallel: true
+  skip:
+    - merge
+    - rebase
+  commands:
+    rome-format:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: pnpm rome format --write {staged_files}
+      stage_fixed: true
+    rome-lint:
+      glob: "*.{js,jsx,ts,tsx}"
+      run: pnpm rome check --apply-unsafe {staged_files} && pnpm rome check {staged_files}
+      stage_fixed: true
+    prettier-package-json:
+      glob: "package.json"
+      run: pnpm prettier-package-json --use-tabs --write {staged_files}
+      stage_fixed: true
+    typescript:
+      glob: "*.{ts,tsx}"
+      run: pnpm tsc --project ./tsconfig.json --noEmit
+      
+       
