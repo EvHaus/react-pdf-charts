@@ -3,6 +3,7 @@
 build.ts
 bun.lockb
 bun.toml
+CONTRIBUTING.md
 examples
 lefthook.yml
 README.md
