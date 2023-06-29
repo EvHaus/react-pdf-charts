@@ -31,14 +31,9 @@ jobs:
 
     - name: Install dependencies
       run: bun install
-    
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
 
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm run semantic-release
+      run: bun run semantic-release

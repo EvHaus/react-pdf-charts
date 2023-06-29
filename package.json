@@ -50,8 +50,5 @@
 	},
 	"engines": {
 		"node": ">=16"
-	},
-	"release": {
-		"debug": true
 	}
 }
