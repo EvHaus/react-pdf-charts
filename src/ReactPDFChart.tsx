@@ -60,6 +60,18 @@ const PRESENTATION_ATTRIBUTES = [
 ];
 
 const styles = StyleSheet.create({
+	'recharts-default-legend': {
+		justifyContent: 'center',
+		flexDirection: 'row',
+		gap: 8,
+	},
+	'recharts-legend-item': {
+		flexDirection: 'row',
+		gap: 4,
+	},
+	'recharts-legend-item-text': {
+		fontSize: BASE_FONT_SIZE - 1,
+	},
 	'recharts-text': {
 		fontSize: BASE_FONT_SIZE,
 	},
@@ -75,6 +87,35 @@ const convertUnits = (value: string) => {
 	}
 
 	return parseFloat(value);
+};
+
+// For element that allow it (ie. <Text />) this will create custom styling
+// so we can allow users to customize fonts and other styles.
+const getElementStyle = (
+	attribs: TagElementType['attribs'],
+	chartStyle: PropsType['chartStyle'],
+) => {
+	const style: Array<Style> = [];
+	if (attribs.class) {
+		attribs.class.split(' ').forEach((className) => {
+			// @ts-expect-error Not sure how to fix this
+			if (className in styles) style.push(styles[className]);
+			if (chartStyle && className in chartStyle)
+				// @ts-expect-error Not sure how to fix this
+				style.push(chartStyle[className]);
+		});
+	}
+
+	// Apply inline styles that react-pdf supports
+	if (attribs.style) {
+		attribs.style.split(';').forEach((styleString) => {
+			const [key, value] = styleString.split(':');
+			if (['backgroundColor', 'color'].includes(key)) {
+				style.push({ [key]: value });
+			}
+		});
+	}
+	return style;
 };
 
 // Because <tspan> elements are broken in react-pdf, if those <tspan>'s have
@@ -205,6 +246,12 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							{children}
 						</Line>
 					);
+				case 'li':
+					return (
+						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+							{children}
+						</View>
+					);
 				case 'lineargradient':
 					return (
 						<LinearGradient
@@ -264,6 +311,12 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							{children}
 						</Rect>
 					);
+				case 'span':
+					return (
+						<Text {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+							{children}
+						</Text>
+					);
 				case 'stop':
 					return (
 						<Stop
@@ -287,28 +340,13 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						</Svg>
 					);
 				case 'text':
-					// <Text /> is one of the only react-pdf elements that
-					// supports custom styling. So here we can allow users to
-					// customize fonts and other styles.
-					// rome-ignore lint/correctness/noSwitchDeclarations: Fix later
-					const textStyle: Array<Style> = [];
-					if (attribs.class) {
-						attribs.class.split(' ').forEach((className) => {
-							// @ts-expect-error Not sure how to fix this
-							if (className in styles) textStyle.push(styles[className]);
-							if (chartStyle && className in chartStyle)
-								// @ts-expect-error Not sure how to fix this
-								textStyle.push(chartStyle[className]);
-						});
-					}
-
 					// rome-ignore lint/correctness/noSwitchDeclarations: This is safe
 					const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
 
 					return (
 						<Text
 							{...baseProps}
-							style={textStyle}
+							style={getElementStyle(attribs, chartStyle)}
 							x={attribs.x != null ? parseFloat(attribs.x) + dx : dx}
 							y={attribs.y != null ? parseFloat(attribs.y) + dy : dy}
 						>
@@ -331,6 +369,12 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					// `dx` and `dy` attributes are not supported by react-pdf
 					// See: https://github.com/diegomura/react-pdf/issues/1271
 					return <Tspan {...baseProps}>{children}</Tspan>;
+				case 'ul':
+					return (
+						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+							{children}
+						</View>
+					);
 			}
 
 			throw new Error(

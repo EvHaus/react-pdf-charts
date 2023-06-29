@@ -1,6 +1,6 @@
 {
 	"name": "react-pdf-charts",
-	"version": "0.0.1",
+	"version": "0.0.0",
 	"description": "Allows SVG-based React charts to be rendered in react-pdf",
 	"license": "MIT",
 	"author": "Ev Haus",
@@ -14,7 +14,8 @@
 		"rome:format": "rome format --write .",
 		"rome:lint": "rome check --apply-unsafe . && rome check .",
 		"semantic-release": "semantic-release",
-		"start": "bun examples/basic.tsx",
+		"start": "bun examples/index.ts",
+		"start:dev": "bun --watch examples/index.ts",
 		"test": "bun lint",
 		"typescript": "tsc --noEmit"
 	},
