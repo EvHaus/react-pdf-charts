@@ -19,7 +19,7 @@ jobs:
       run: bun run test
 
   Release:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta'
     runs-on: ubuntu-latest
     needs: [Test]
     steps:
