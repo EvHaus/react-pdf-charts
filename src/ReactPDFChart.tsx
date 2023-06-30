@@ -186,6 +186,15 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					...rest.map((word) => `${word[0].toUpperCase()}${word.slice(1)}`),
 				].join('');
 
+				// On the client, sometimes `strokeDasharray` is rendered with
+				// `px` units which need to be converted to `react-pdf` units
+				if (attrName === 'strokeDasharray') {
+					if (value.includes('px')) value = value.replaceAll('px', '');
+
+					// Multiple units aren't supported in react-pdf, ie. `0 0`
+					if (value.includes(' ')) value = value.split(' ')[0];
+				}
+
 				// Convert presentational SVG attributes to react-pdf props
 				if (PRESENTATION_ATTRIBUTES.includes(attrName)) {
 					// rome-ignore lint/suspicious/noExplicitAny: Fix me later
@@ -394,7 +403,7 @@ const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
 	const component = webSvgToPdfSvg(children, chartStyle);
 
 	// This should never happen, but it's here for type safety
-	if (!component || typeof component === 'string') return component;
+	if (!component || typeof component === 'string') return <>{component}</>;
 
 	// This should never happen (as far as I know) but it's here for type safety
 	if (Array.isArray(component)) {
