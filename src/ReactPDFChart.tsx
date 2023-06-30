@@ -192,7 +192,15 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					if (value.includes('px')) value = value.replaceAll('px', '');
 
 					// Multiple units aren't supported in react-pdf, ie. `0 0`
-					if (value.includes(' ')) value = value.split(' ')[0];
+					if (value.includes(' ')) {
+						const [first, second] = value.split(' ');
+						if (first !== second) {
+							throw new Error(
+								`Your chart rendered a (${name}) element with a "${first}" value that's not supported: ${value}.`,
+							);
+						}
+						value = first;
+					}
 				}
 
 				// Convert presentational SVG attributes to react-pdf props
