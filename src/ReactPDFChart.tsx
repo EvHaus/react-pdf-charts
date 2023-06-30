@@ -155,6 +155,12 @@ const getTspanChildrenOffsets = (node: TagElementType) => {
 const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 	const svgString = renderToStaticMarkup(children);
 
+	if (!svgString?.length) {
+		throw new Error(
+			`<ReactPDFChart /> was unable to convert your chart into static markup. The most common reason for this is that your chart is missing a "height" or "width". If you think it's a different problem, please report this issue.`,
+		);
+	}
+
 	const htmlReactParserOptions: HTMLReactParserOptions = {
 		replace: replaceHtmlWithPdfSvg,
 	};
