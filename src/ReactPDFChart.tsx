@@ -199,7 +199,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 			// `domToReact` function that processes children will ignore the output.
 			// So if you want to skip rendering some element, return an empty <></>
 			// fragment instead.
-			switch (name) {
+			switch (name.toLowerCase()) {
 				case 'circle':
 					return (
 						<Circle
