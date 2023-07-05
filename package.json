@@ -15,7 +15,7 @@
 	"type": "module",
 	"exports": "./dist/index.js",
 	"scripts": {
-		"dist": "bun ./build.ts",
+		"build": "bun ./build.ts",
 		"lint": "bun typescript && bun rome:format && bun rome:lint && bun packagelint",
 		"packagelint": "prettier-package-json --use-tabs --write ./package.json",
 		"rome:format": "rome format --write .",

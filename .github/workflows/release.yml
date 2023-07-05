@@ -28,7 +28,7 @@ jobs:
       run: bun install
     
     - name: Build package
-      run: bun run dist
+      run: bun run build
 
     - name: Release
       env:
