@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
 	'recharts-default-legend': {
 		justifyContent: 'center',
 		flexDirection: 'row',
+		flexWrap: 'wrap',
 		gap: 8,
 	},
 	'recharts-legend-item': {
