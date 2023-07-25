@@ -37,7 +37,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@types/node": "20.4.4",
+		"@types/node": "20.4.5",
 		"@types/react": "18.2.16",
 		"@types/react-dom": "18.2.7",
 		"bun-types": "0.7.0",
