@@ -22,7 +22,7 @@ This library provides a wrapper component that allows you to use popular SVG cha
 
 The outcome is that you'll be able to have PDF documents with beautiful charts like this:
 
-[![react-pdf-charts](examples/basic.png)](https://github.com/EvHaus/react-pdf-charts)
+[![react-pdf-charts](examples/recharts-basic.png)](https://github.com/EvHaus/react-pdf-charts)
 
 ## Table of Contents
 
