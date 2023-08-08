@@ -13,8 +13,9 @@ console.error = function (message) {
 };
 
 const main = async () => {
-	await import('./basic');
-	await import('./composed');
+	await import('./recharts-basic');
+	await import('./recharts-composed');
+	await import('./victory-basic');
 
 	// rome-ignore lint/nursery/noConsoleLog: <explanation>
 	return console.log('✅ /examples updated!');

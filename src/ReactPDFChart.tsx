@@ -110,12 +110,56 @@ const getElementStyle = (
 	// Apply inline styles that react-pdf supports
 	if (attribs.style) {
 		attribs.style.split(';').forEach((styleString) => {
-			const [key, value] = styleString.split(':');
+			const [rawKey, value] = styleString.split(':');
+			const key = rawKey.toLowerCase();
+
 			if (['backgroundColor', 'color'].includes(key)) {
 				style.push({ [key]: value });
+			} else {
+				// This warning is super noisy, but can be helpful when debugging
+				// console.warn(
+				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
+				// );
 			}
 		});
 	}
+	return style;
+};
+
+// For SVG elements this will process inline styles into something react-pdf
+// can understand
+const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
+	const style: SVGPresentationAttributes = {};
+
+	// Apply inline styles that react-pdf supports
+	if (attribs.style) {
+		attribs.style.split(';').forEach((styleString) => {
+			const [rawKey, value] = styleString.split(':');
+			const key = rawKey.toLowerCase();
+
+			switch (key) {
+				case 'color':
+				case 'fill':
+				case 'opacity':
+				case 'stroke':
+					style[key] = value;
+					break;
+				case 'stroke-width':
+					style.strokeWidth = value;
+					break;
+				case 'stroke-linecap':
+					style.strokeLineCap =
+						value as SVGPresentationAttributes['strokeLineCap'];
+					break;
+				default:
+				// This warning is super noisy, but can be helpful when debugging
+				// console.warn(
+				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
+				// );
+			}
+		});
+	}
+
 	return style;
 };
 
@@ -231,6 +275,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							cx={attribs.cx}
 							cy={attribs.cy}
 							r={attribs.r}
+							style={getSvgElementStyle(attribs)}
 						>
 							{children}
 						</Circle>
@@ -252,6 +297,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							cy={attribs.cy}
 							rx={attribs.rx}
 							ry={attribs.ry}
+							style={getSvgElementStyle(attribs)}
 						>
 							{children}
 						</Ellipse>
@@ -266,6 +312,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							x2={attribs.x2}
 							y1={attribs.y1}
 							y2={attribs.y2}
+							style={getSvgElementStyle(attribs)}
 						>
 							{children}
 						</Line>
@@ -291,19 +338,31 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					);
 				case 'path':
 					return (
-						<Path {...baseProps} d={attribs.d}>
+						<Path
+							{...baseProps}
+							d={attribs.d}
+							style={getSvgElementStyle(attribs)}
+						>
 							{children}
 						</Path>
 					);
 				case 'polygon':
 					return (
-						<Polygon {...baseProps} points={attribs.points}>
+						<Polygon
+							{...baseProps}
+							points={attribs.points}
+							style={getSvgElementStyle(attribs)}
+						>
 							{children}
 						</Polygon>
 					);
 				case 'polyline':
 					return (
-						<Polyline {...baseProps} points={attribs.points}>
+						<Polyline
+							{...baseProps}
+							points={attribs.points}
+							style={getSvgElementStyle(attribs)}
+						>
 							{children}
 						</Polyline>
 					);
@@ -328,6 +387,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							height={attribs.height}
 							rx={attribs.rx}
 							ry={attribs.ry}
+							style={getSvgElementStyle(attribs)}
 							width={attribs.width}
 							x={attribs.x}
 							y={attribs.y}
