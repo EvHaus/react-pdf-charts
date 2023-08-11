@@ -1,3 +1,7 @@
+import { PRESENTATION_ATTRIBUTES } from './constants';
+import { getElementStyle, getSvgElementStyle } from './styling';
+import type { PropsType, TagElementType } from './types';
+import { getTspanChildrenOffsets } from './utils';
 import {
 	Circle,
 	ClipPath,
@@ -12,188 +16,61 @@ import {
 	RadialGradient,
 	Rect,
 	Stop,
-	StyleSheet,
 	Svg,
 	Text,
 	Tspan,
 	View,
 } from '@react-pdf/renderer';
 import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
-import parse, {
-	Element,
-	Text as TextNode,
-	domToReact,
-} from 'html-react-parser';
+import parse, { Text as TextNode, domToReact } from 'html-react-parser';
 import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-type TagElementType = Element & { children?: Array<Element & Element> };
-
-type PropsType = {
-	children: React.ReactElement;
-	debug?: boolean;
+const renderTextElement = ({
+	baseProps,
+	chartStyle,
+	children,
+	node,
+}: {
+	baseProps: SVGPresentationAttributes;
 	chartStyle?: Style;
-	style?: Style;
-};
+	children: string | JSX.Element | Array<JSX.Element>;
+	node: TagElementType;
+}) => {
+	const { attribs } = node;
+	const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
 
-// The base font size that will be used for text
-const BASE_FONT_SIZE = 11;
+	let tSpanChildNode;
+	const textChildren = React.Children.map(children, (child) => {
+		if (!child || typeof child === 'string') return child;
 
-// These should match the supported attributes in react-pdf
-// See: https://react-pdf.org/svg#presentation-attributes
-const PRESENTATION_ATTRIBUTES = [
-	'color',
-	'dominantBaseline',
-	'fill',
-	'fillOpacity',
-	'fillRule',
-	'opacity',
-	'stroke',
-	'strokeWidth',
-	'strokeOpacity',
-	'strokeLinecap',
-	'strokeDasharray',
-	'transform',
-	'textAnchor',
-	'visibility',
-];
+		// TSpan elements are broken in react-pdf. This will
+		// convert them to plain text until the issue is fixed:
+		// https://github.com/diegomura/react-pdf/issues/2003
+		if (child.type === 'TSPAN') {
+			tSpanChildNode = child;
+			return child.props.children;
+		}
 
-const styles = StyleSheet.create({
-	'recharts-default-legend': {
-		justifyContent: 'center',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		gap: 8,
-	},
-	'recharts-legend-item': {
-		flexDirection: 'row',
-		gap: 4,
-	},
-	'recharts-legend-item-text': {
-		fontSize: BASE_FONT_SIZE - 1,
-	},
-	'recharts-text': {
-		fontSize: BASE_FONT_SIZE,
-	},
-});
+		return child;
+	});
 
-// Some times charts will render numbers with units (like "em") which aren't
-// supported in react-pdf. This function can be used to convert into a best-
-// guess in supported units.
-const convertUnits = (value: string) => {
-	if (value.endsWith('em')) {
-		const [val] = value.split('em');
-		return Math.round(parseFloat(val) * BASE_FONT_SIZE);
-	}
+	// If there's a TSpan child, we need to merge its styles with the node ones
+	const additionalStyle = tSpanChildNode
+		? (tSpanChildNode as JSX.Element).props.style
+		: null;
 
-	return parseFloat(value);
-};
-
-// For element that allow it (ie. <Text />) this will create custom styling
-// so we can allow users to customize fonts and other styles.
-const getElementStyle = (
-	attribs: TagElementType['attribs'],
-	chartStyle: PropsType['chartStyle'],
-) => {
-	const style: Array<Style> = [];
-	if (attribs.class) {
-		attribs.class.split(' ').forEach((className) => {
-			// @ts-expect-error Not sure how to fix this
-			if (className in styles) style.push(styles[className]);
-			if (chartStyle && className in chartStyle)
-				// @ts-expect-error Not sure how to fix this
-				style.push(chartStyle[className]);
-		});
-	}
-
-	// Apply inline styles that react-pdf supports
-	if (attribs.style) {
-		attribs.style.split(';').forEach((styleString) => {
-			const [rawKey, value] = styleString.split(':');
-			const key = rawKey.toLowerCase();
-
-			if (['backgroundColor', 'color'].includes(key)) {
-				style.push({ [key]: value });
-			} else {
-				// This warning is super noisy, but can be helpful when debugging
-				// console.warn(
-				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
-				// );
-			}
-		});
-	}
-	return style;
-};
-
-// For SVG elements this will process inline styles into something react-pdf
-// can understand
-const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
-	const style: SVGPresentationAttributes = {};
-
-	// Apply inline styles that react-pdf supports
-	if (attribs.style) {
-		attribs.style.split(';').forEach((styleString) => {
-			const [rawKey, value] = styleString.split(':');
-			const key = rawKey.toLowerCase();
-
-			switch (key) {
-				case 'color':
-				case 'fill':
-				case 'opacity':
-				case 'stroke':
-					style[key] = value;
-					break;
-				case 'stroke-width':
-					style.strokeWidth = value;
-					break;
-				case 'stroke-linecap':
-					style.strokeLineCap =
-						value as SVGPresentationAttributes['strokeLineCap'];
-					break;
-				default:
-				// This warning is super noisy, but can be helpful when debugging
-				// console.warn(
-				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
-				// );
-			}
-		});
-	}
-
-	return style;
-};
-
-// Because <tspan> elements are broken in react-pdf, if those <tspan>'s have
-// positioning offsets, text will be rendered in the wrong position. To try to
-// fix this, we'll check if the children of this text element are Tspans, and if
-// they have any dx or dy attributes. If they do, we'll add those to the parent
-// <Text> element instead. It's not ideal, but the best that we can do until
-// react-pdf fully supports <tspan> elements.
-const getTspanChildrenOffsets = (node: TagElementType) => {
-	const { allDx, allDy } = node.children.reduce<{
-		allDx: Array<number>;
-		allDy: Array<number>;
-	}>(
-		(acc, child) => {
-			if (child.type === 'tag' && child.name === 'tspan') {
-				if (child.attribs.dx) acc.allDx.push(convertUnits(child.attribs.dx));
-				if (child.attribs.dy) acc.allDy.push(convertUnits(child.attribs.dy));
-			}
-			return acc;
-		},
-		{ allDx: [], allDy: [] },
+	return (
+		<Text
+			{...baseProps}
+			style={getElementStyle(attribs, chartStyle, additionalStyle)}
+			x={attribs.x != null ? parseFloat(attribs.x) + dx : dx}
+			y={attribs.y != null ? parseFloat(attribs.y) + dy : dy}
+		>
+			{textChildren}
+		</Text>
 	);
-
-	// If children have different values -- there's not much we can do. We'll
-	// take the first one and display a warning to the user to let them know
-	// things might not be positioned correctly.
-	if (allDx.length > 1 || allDy.length > 1) {
-		console.warn(
-			`<ReactPDFChart /> detected that your chart has <Tspan> nodes nested inside a <Text> node which have different 'dx' or 'dy' attributes. Unfortunately this isn't supported by react-pdf. Text positioning may not be accurate.`,
-		);
-	}
-
-	return { dx: allDx[0] || 0, dy: allDy[0] || 0 };
 };
 
 // Converts a web-based SVG element to a react-pdf SVG element
@@ -424,35 +301,26 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						</Svg>
 					);
 				case 'text':
-					// rome-ignore lint/correctness/noSwitchDeclarations: This is safe
-					const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
-
-					return (
-						<Text
-							{...baseProps}
-							style={getElementStyle(attribs, chartStyle)}
-							x={attribs.x != null ? parseFloat(attribs.x) + dx : dx}
-							y={attribs.y != null ? parseFloat(attribs.y) + dy : dy}
-						>
-							{React.Children.map(children, (child) => {
-								if (!child || typeof child === 'string') return child;
-
-								// TSpan elements are broken in react-pdf. This will
-								// convert them to plain text until the issue is fixed:
-								// https://github.com/diegomura/react-pdf/issues/2003
-								if (child.type === 'TSPAN') return child.props.children;
-
-								return child;
-							})}
-						</Text>
-					);
+					return renderTextElement({
+						baseProps,
+						chartStyle,
+						children,
+						node: node as TagElementType,
+					});
 				case 'title':
 					// Not supported in react-pdf. Rendering will be skipped.
 					return <></>;
 				case 'tspan':
 					// `dx` and `dy` attributes are not supported by react-pdf
 					// See: https://github.com/diegomura/react-pdf/issues/1271
-					return <Tspan {...baseProps}>{children}</Tspan>;
+					return (
+						// @ts-expect-error Tspan's don't support a `style` prop,
+						// but we're going to pass it in anyway so that the
+						// `renderTextElement()` util can extract it.
+						<Tspan {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+							{children}
+						</Tspan>
+					);
 				case 'ul':
 					return (
 						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
