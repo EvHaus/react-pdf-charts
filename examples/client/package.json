@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsc && vite build",
-		"start": "bunx --bun vite"
+		"start": "bunx --bun vite --force"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
