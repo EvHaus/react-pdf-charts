@@ -1,5 +1,6 @@
 name: 🚀 New feature proposal
 description: Propose a new feature to be added to react-pdf-charts
+labels: [enhancement]
 body:
   - type: markdown
     attributes:

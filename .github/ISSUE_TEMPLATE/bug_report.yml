@@ -1,5 +1,6 @@
 name: 🐞 Bug report
 description: Report an issue with react-pdf-charts
+labels: [bug]
 body:
   - type: markdown
     attributes:
