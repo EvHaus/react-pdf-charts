@@ -1,0 +1,22 @@
+{
+	"name": "my-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsc && vite build",
+		"start": "bunx --bun vite"
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-pdf-charts": "file:../../"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react": "^4.0.3",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.5"
+	}
+}

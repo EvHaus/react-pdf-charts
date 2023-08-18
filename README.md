@@ -140,6 +140,8 @@ You can check the working examples in the `/examples` folder.
 
 You can re-run the examples by downloading this repository, running `bun install` to install dependencies, and then running `bun start` to re-generate the `.pdf` files in the examples folder.
 
+There's also `/examples/client` which is a small little web server which you can use to test `react-pdf`'s web-only APIs like `PDFViewer` and `PDFDownloadLink`. To run that example, use `cd examples/client && bun install && bun start`.
+
 ### Known Issues
 
 - [ ] Only some `recharts` components are supported at the moment. In theory this library should work with others (like `highcharts` and `victory`) but those haven't been tested yet.
