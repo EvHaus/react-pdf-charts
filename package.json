@@ -38,7 +38,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "20.5.2",
-		"@types/react": "18.2.20",
+		"@types/react": "18.2.21",
 		"@types/react-dom": "18.2.7",
 		"bun-types": "0.7.3",
 		"lefthook": "1.4.9",
