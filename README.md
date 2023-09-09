@@ -144,7 +144,8 @@ There's also `/examples/client` which is a small little web server which you can
 
 ### Known Issues
 
-- [ ] Only some `recharts` components are supported at the moment. In theory this library should work with others (like `highcharts` and `victory`) but those haven't been tested yet.
+- [ ] Only `recharts` and `victory` have been tested. In theory `react-pdf-charts` should work with others charting libraries (like `highcharts`) but those haven't been tested yet.
+- [ ] When rendering `<Bar />` and `<Area />` charts with `recharts` using client-side rendering (ie. `<PDFViewer>` or `<PDFDownloadLink>`), it's important to set `isAnimationActive={false}` on your `<Bar />` compoments otherwise the chart will not render correctly ([more info](https://github.com/EvHaus/react-pdf-charts/issues/51#issuecomment-1712407584)). Perhaps in the future `react-pdf-charts` could auto-detect this and disable animations automatically.
 
 ## Other Solutions
 
