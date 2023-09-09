@@ -8,7 +8,7 @@ console.error = function (message) {
 		return;
 	}
 	// @ts-expect-error Skipping type checking
-	// rome-ignore lint/style/noArguments: Monkeypatching on purpose
+	// biome-ignore lint/style/noArguments: Monkeypatching on purpose
 	consoleError.apply(console, arguments);
 };
 
@@ -17,7 +17,7 @@ const main = async () => {
 	await import('./recharts-composed');
 	await import('./victory-basic');
 
-	// rome-ignore lint/nursery/noConsoleLog: <explanation>
+	// biome-ignore lint/suspicious/noConsoleLog: <explanation>
 	return console.log('✅ /examples updated!');
 };
 

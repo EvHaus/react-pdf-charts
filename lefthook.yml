@@ -6,13 +6,13 @@ pre-commit:
     - merge
     - rebase
   commands:
-    rome-format:
+    biome-format:
       glob: "*.{js,jsx,ts,tsx}"
-      run: bun run rome format --write {staged_files}
+      run: bun run biome format --write {staged_files}
       stage_fixed: true
-    rome-lint:
+    biome-lint:
       glob: "*.{js,jsx,ts,tsx}"
-      run: bun run rome check --apply-unsafe {staged_files} && pnpm rome check {staged_files}
+      run: bun run biome check --apply-unsafe {staged_files} && bun run biome check {staged_files}
       stage_fixed: true
     prettier-package-json:
       glob: "package.json"

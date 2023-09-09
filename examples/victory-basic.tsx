@@ -1,9 +1,9 @@
-import ReactPDFChart from '../src';
+import { fileURLToPath } from 'node:url';
 import { Document, Page } from '@react-pdf/renderer';
 import ReactPDF from '@react-pdf/renderer';
-import { fileURLToPath } from 'node:url';
 import React from 'react';
 import { VictoryBar, VictoryChart } from 'victory';
+import ReactPDFChart from '../src';
 
 const data = [
 	{ x: 1, y: 2, y0: 1 },

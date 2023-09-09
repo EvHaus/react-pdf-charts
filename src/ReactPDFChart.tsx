@@ -1,7 +1,3 @@
-import { PRESENTATION_ATTRIBUTES } from './constants';
-import { getElementStyle, getSvgElementStyle } from './styling';
-import type { PropsType, TagElementType } from './types';
-import { getTspanChildrenOffsets } from './utils';
 import {
 	Circle,
 	ClipPath,
@@ -26,6 +22,10 @@ import parse, { Text as TextNode, domToReact } from 'html-react-parser';
 import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { PRESENTATION_ATTRIBUTES } from './constants';
+import { getElementStyle, getSvgElementStyle } from './styling';
+import type { PropsType, TagElementType } from './types';
+import { getTspanChildrenOffsets } from './utils';
 
 const renderTextElement = ({
 	baseProps,
@@ -133,7 +133,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 
 				// Convert presentational SVG attributes to react-pdf props
 				if (PRESENTATION_ATTRIBUTES.includes(attrName)) {
-					// rome-ignore lint/suspicious/noExplicitAny: Fix me later
+					// biome-ignore lint/suspicious/noExplicitAny: Fix me later
 					acc[attrName as keyof SVGPresentationAttributes] = value as any;
 				}
 

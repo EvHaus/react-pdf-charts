@@ -1,8 +1,8 @@
+import { StyleSheet } from '@react-pdf/renderer';
+import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
 import { BASE_FONT_SIZE } from './constants';
 import type { PropsType, TagElementType } from './types';
 import { convertUnits } from './utils';
-import { StyleSheet } from '@react-pdf/renderer';
-import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
 
 const styles = StyleSheet.create({
 	'recharts-default-legend': {

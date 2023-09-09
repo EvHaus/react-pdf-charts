@@ -22,7 +22,7 @@ async function main() {
 	const stderrStr = await new Response(stderr).text();
 	if (stderrStr) return console.error(stderrStr);
 
-	// rome-ignore lint/nursery/noConsoleLog: <explanation>
+	// biome-ignore lint/suspicious/noConsoleLog: <explanation>
 	return console.log(`✅ DONE! ${stdoutStr}`);
 }
 

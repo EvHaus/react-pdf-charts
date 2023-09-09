@@ -1,5 +1,5 @@
 {
-	"$schema": "./node_modules/rome/configuration_schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.1.2/schema.json",
 	"files": {
 		"ignore": ["dist"]
 	},
@@ -8,6 +8,7 @@
 	},
 	"javascript": {
 		"formatter": {
+			"jsxQuoteStyle": "single",
 			"quoteStyle": "single"
 		}
 	},
@@ -17,10 +18,12 @@
 			"recommended": true,
 			"a11y": {
 				"noAccessKey": "error",
-				"noAutofocus": "off"
+				"noAutofocus": "off",
+				"useHeadingContent": "error"
 			},
 			"complexity": {
-				"noUselessFragments": "error"
+				"useLiteralKeys": "error",
+				"useSimpleNumberKeys": "error"
 			},
 			"correctness": {
 				"noUnusedVariables": "error"
@@ -29,15 +32,24 @@
 				"noAccumulatingSpread": "error",
 				"noAriaUnsupportedElements": "error",
 				"noConfusingArrow": "error",
-				"noConsoleLog": "error",
-				"useHeadingContent": "error",
-				"useLiteralEnumMembers": "error",
-				"useLiteralKeys": "error",
+				"noDuplicateJsonKeys": "error",
+				"noFallthroughSwitchClause": "error",
+				"useGetterReturn": "error",
+				"noGlobalIsFinite": "error",
+				"noGlobalIsNan": "error",
 				"noNoninteractiveTabindex": "error",
+				"noNonoctalDecimalEscape": "error",
 				"noRedundantRoles": "error",
+				"noUnsafeDeclarationMerging": "error",
+				"noUselessEmptyExport": "error",
+				"noVoid": "error",
 				"useExhaustiveDependencies": "error",
 				"useGroupedTypeImport": "error",
-				"useSimpleNumberKeys": "error"
+				"useIsArray": "error",
+				"useLiteralEnumMembers": "error"
+			},
+			"suspicious": {
+				"noConsoleLog": "error"
 			}
 		}
 	},
