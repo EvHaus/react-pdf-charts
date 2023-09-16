@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.1.2/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
 	"files": {
 		"ignore": ["dist"]
 	},
@@ -18,38 +18,40 @@
 			"recommended": true,
 			"a11y": {
 				"noAccessKey": "error",
+				"noAriaUnsupportedElements": "error",
 				"noAutofocus": "off",
+				"noNoninteractiveTabindex": "error",
+				"noRedundantRoles": "error",
 				"useHeadingContent": "error"
 			},
 			"complexity": {
+				"noUselessEmptyExport": "error",
 				"useLiteralKeys": "error",
 				"useSimpleNumberKeys": "error"
 			},
 			"correctness": {
+				"noNonoctalDecimalEscape": "error",
 				"noUnusedVariables": "error"
 			},
 			"nursery": {
 				"noAccumulatingSpread": "error",
-				"noAriaUnsupportedElements": "error",
-				"noConfusingArrow": "error",
+				"noConfusingVoidType": "error",
 				"noDuplicateJsonKeys": "error",
 				"noFallthroughSwitchClause": "error",
-				"useGetterReturn": "error",
 				"noGlobalIsFinite": "error",
 				"noGlobalIsNan": "error",
-				"noNoninteractiveTabindex": "error",
-				"noNonoctalDecimalEscape": "error",
-				"noRedundantRoles": "error",
-				"noUnsafeDeclarationMerging": "error",
-				"noUselessEmptyExport": "error",
 				"noVoid": "error",
 				"useExhaustiveDependencies": "error",
 				"useGroupedTypeImport": "error",
-				"useIsArray": "error",
+				"useIsArray": "error"
+			},
+			"style": {
 				"useLiteralEnumMembers": "error"
 			},
 			"suspicious": {
-				"noConsoleLog": "error"
+				"noConsoleLog": "error",
+				"noUnsafeDeclarationMerging": "error",
+				"useGetterReturn": "error"
 			}
 		}
 	},
