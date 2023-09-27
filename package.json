@@ -40,7 +40,7 @@
 		"@biomejs/biome": "1.2.2",
 		"@types/node": "20.7.0",
 		"@types/react": "18.2.23",
-		"@types/react-dom": "18.2.7",
+		"@types/react-dom": "18.2.8",
 		"bun-types": "1.0.3",
 		"lefthook": "1.5.0",
 		"prettier-package-json": "2.8.0",
