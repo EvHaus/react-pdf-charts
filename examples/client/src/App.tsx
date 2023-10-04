@@ -1,4 +1,5 @@
 import { Document, PDFViewer, Page } from '@react-pdf/renderer';
+import React from 'react';
 import ReactPDFChart from 'react-pdf-charts';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
