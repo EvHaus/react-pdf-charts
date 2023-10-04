@@ -20,8 +20,8 @@ const MyDocument = () => (
 					<XAxis dataKey='name' />
 					<YAxis />
 					<CartesianGrid stroke='#ccc' strokeDasharray='3 3' />
-					<Bar dataKey='uv' fill='#8884d8' />
-					<Bar dataKey='pv' fill='#82ca9d' />
+					<Bar dataKey='uv' fill='#8884d8' isAnimationActive={false} />
+					<Bar dataKey='pv' fill='#82ca9d' isAnimationActive={false} />
 				</BarChart>
 			</ReactPDFChart>
 		</Page>
