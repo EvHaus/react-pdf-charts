@@ -39,8 +39,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.2.2",
 		"@types/node": "20.8.4",
-		"@types/react": "18.2.26",
-		"@types/react-dom": "18.2.11",
+		"@types/react": "18.2.27",
+		"@types/react-dom": "18.2.12",
 		"bun-types": "1.0.4",
 		"lefthook": "1.5.2",
 		"prettier-package-json": "2.8.0",
