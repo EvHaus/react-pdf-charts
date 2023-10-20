@@ -26,26 +26,28 @@
 			},
 			"complexity": {
 				"noUselessEmptyExport": "error",
+				"noVoid": "error",
 				"useLiteralKeys": "error",
 				"useSimpleNumberKeys": "error"
 			},
 			"correctness": {
 				"noNonoctalDecimalEscape": "error",
-				"noUnusedVariables": "error"
+				"useHookAtTopLevel": "error"
 			},
 			"nursery": {
-				"noAccumulatingSpread": "error",
-				"noConfusingVoidType": "error",
+				"noApproximativeNumericConstant": "error",
 				"noDuplicateJsonKeys": "error",
-				"noFallthroughSwitchClause": "error",
-				"noGlobalIsFinite": "error",
-				"noGlobalIsNan": "error",
-				"noVoid": "error",
-				"useExhaustiveDependencies": "error",
+				"noEmptyCharacterClassInRegex": "error",
+				"noInteractiveElementToNoninteractiveRole": "error",
+				"noInvalidNewBuiltin": "error",
+				"noMisleadingInstantiator": "error",
+				"noMisrefactoredShorthandAssign": "error",
+				"useAriaActivedescendantWithTabindex": "error",
 				"useGroupedTypeImport": "error",
-				"useIsArray": "error"
+				"useShorthandAssign": "error"
 			},
 			"style": {
+				"useCollapsedElseIf": "error",
 				"useLiteralEnumMembers": "error"
 			},
 			"suspicious": {

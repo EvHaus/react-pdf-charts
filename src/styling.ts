@@ -32,13 +32,13 @@ export const getElementStyle = (
 ) => {
 	const style: Array<Style> = [];
 	if (attribs.class) {
-		attribs.class.split(' ').forEach((className) => {
+		for (const className of attribs.class.split(' ')) {
 			// @ts-expect-error Not sure how to fix this
 			if (className in styles) style.push(styles[className]);
 			if (chartStyle && className in chartStyle)
 				// @ts-expect-error Not sure how to fix this
 				style.push(chartStyle[className]);
-		});
+		}
 	}
 
 	// Convert inline attributes to styles
@@ -50,7 +50,7 @@ export const getElementStyle = (
 
 	// Apply inline styles that react-pdf supports
 	if (attribs.style) {
-		attribs.style.split(';').forEach((styleString) => {
+		for (const styleString of attribs.style.split(';')) {
 			const [rawKey, value] = styleString.split(':');
 			const key = rawKey.toLowerCase();
 
@@ -64,7 +64,7 @@ export const getElementStyle = (
 				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
 				// );
 			}
-		});
+		}
 	}
 
 	if (additionalStyle) style.push(additionalStyle);
@@ -79,7 +79,7 @@ export const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
 
 	// Apply inline styles that react-pdf supports
 	if (attribs.style) {
-		attribs.style.split(';').forEach((styleString) => {
+		for (const styleString of attribs.style.split(';')) {
 			const [rawKey, value] = styleString.split(':');
 			const key = rawKey.toLowerCase();
 
@@ -103,7 +103,7 @@ export const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
 				// 	`<ReactPDFChart /> detected that your chart has a node with an unsupported inline style. "${attribs.style}" mentions "${key}" which isn't supported in react-pdf yet.`,
 				// );
 			}
-		});
+		}
 	}
 
 	return style;
