@@ -45,7 +45,7 @@
 		"lefthook": "1.5.2",
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.9.3",
-		"semantic-release": "22.0.7",
+		"semantic-release": "22.0.8",
 		"typescript": "5.2.2",
 		"victory": "36.6.12"
 	},
