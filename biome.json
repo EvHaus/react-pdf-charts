@@ -1,7 +1,13 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
 	"files": {
-		"ignore": ["dist"]
+		"ignore": [
+			".next",
+			"coverage",
+			"dist",
+			"utils/eta/**",
+			"utils/react-pdf-html/**"
+		]
 	},
 	"formatter": {
 		"enabled": true
@@ -17,43 +23,33 @@
 		"rules": {
 			"recommended": true,
 			"a11y": {
-				"noAccessKey": "error",
-				"noAriaUnsupportedElements": "error",
-				"noAutofocus": "off",
-				"noNoninteractiveTabindex": "error",
-				"noRedundantRoles": "error",
-				"useHeadingContent": "error"
+				"noAutofocus": "off"
 			},
 			"complexity": {
-				"noUselessEmptyExport": "error",
-				"noVoid": "error",
-				"useLiteralKeys": "error",
-				"useSimpleNumberKeys": "error"
+				"noVoid": "error"
 			},
 			"correctness": {
-				"noNonoctalDecimalEscape": "error",
-				"useHookAtTopLevel": "error"
+				"useHookAtTopLevel": "error",
+				"useExhaustiveDependencies": "off"
 			},
 			"nursery": {
-				"noApproximativeNumericConstant": "error",
+				"noAriaHiddenOnFocusable": "error",
+				"useAwait": "error",
+				"noDefaultExport": "off",
 				"noDuplicateJsonKeys": "error",
-				"noEmptyCharacterClassInRegex": "error",
-				"noInteractiveElementToNoninteractiveRole": "error",
-				"noInvalidNewBuiltin": "error",
-				"noMisleadingInstantiator": "error",
-				"noMisrefactoredShorthandAssign": "error",
-				"useAriaActivedescendantWithTabindex": "error",
+				"noUnusedImports": "error",
 				"useGroupedTypeImport": "error",
-				"useShorthandAssign": "error"
+				"useRegexLiterals": "error",
+				"useValidAriaRole": "error"
 			},
 			"style": {
 				"useCollapsedElseIf": "error",
-				"useLiteralEnumMembers": "error"
+				"useShorthandAssign": "error"
 			},
 			"suspicious": {
+				"noApproximativeNumericConstant": "error",
 				"noConsoleLog": "error",
-				"noUnsafeDeclarationMerging": "error",
-				"useGetterReturn": "error"
+				"noMisrefactoredShorthandAssign": "error"
 			}
 		}
 	},
