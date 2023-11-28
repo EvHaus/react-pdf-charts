@@ -1,7 +1,7 @@
 // Silence `useLayoutEffect does nothing on the server` warnings. These come
 // from `recharts` but they're harmless and just clutter the console output.
 const consoleError = console.error;
-console.error = function (message) {
+console.error = (message) => {
 	if (
 		message.startsWith('Warning: useLayoutEffect does nothing on the server')
 	) {
