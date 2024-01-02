@@ -41,7 +41,7 @@
 		"@types/node": "20.10.6",
 		"@types/react": "18.2.46",
 		"@types/react-dom": "18.2.18",
-		"bun-types": "1.0.20",
+		"bun-types": "1.0.21",
 		"lefthook": "1.5.5",
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.10.3",
