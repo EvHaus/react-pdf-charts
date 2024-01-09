@@ -1,13 +1,8 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"ignore": [
-			".next",
-			"coverage",
-			"dist",
-			"utils/eta/**",
-			"utils/react-pdf-html/**"
-		]
+		"ignore": ["dist"],
+		"ignoreUnknown": true
 	},
 	"formatter": {
 		"enabled": true
@@ -29,18 +24,24 @@
 				"noVoid": "error"
 			},
 			"correctness": {
-				"useHookAtTopLevel": "error",
 				"useExhaustiveDependencies": "off"
 			},
 			"nursery": {
-				"noAriaHiddenOnFocusable": "error",
 				"useAwait": "error",
-				"noDefaultExport": "off",
 				"noDuplicateJsonKeys": "error",
+				"noEmptyTypeParameters": "error",
+				"noGlobalAssign": "error",
+				"noGlobalEval": "error",
+				"noMisleadingCharacterClass": "error",
+				"noThenProperty": "error",
 				"noUnusedImports": "error",
+				"noUselessTernary": "error",
+				"useExportType": "error",
+				"useImportType": "error",
 				"useGroupedTypeImport": "error",
-				"useRegexLiterals": "error",
-				"useValidAriaRole": "error"
+				"useNodejsImportProtocol": "error",
+				"useNumberNamespace": "error",
+				"useShorthandFunctionType": "error"
 			},
 			"style": {
 				"useCollapsedElseIf": "error",

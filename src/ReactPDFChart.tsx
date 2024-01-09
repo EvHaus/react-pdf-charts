@@ -18,7 +18,7 @@ import {
 	View,
 } from '@react-pdf/renderer';
 import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
-import parse, { Text as TextNode, domToReact } from 'html-react-parser';
+import parse, { type Text as TextNode, domToReact } from 'html-react-parser';
 import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -41,7 +41,7 @@ const renderTextElement = ({
 	const { attribs } = node;
 	const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
 
-	let tSpanChildNode;
+	let tSpanChildNode: JSX.Element | undefined;
 	const textChildren = React.Children.map(children, (child) => {
 		if (!child || typeof child === 'string') return child;
 
@@ -65,8 +65,8 @@ const renderTextElement = ({
 		<Text
 			{...baseProps}
 			style={getElementStyle(attribs, chartStyle, additionalStyle)}
-			x={attribs.x != null ? parseFloat(attribs.x) + dx : dx}
-			y={attribs.y != null ? parseFloat(attribs.y) + dy : dy}
+			x={attribs.x != null ? Number.parseFloat(attribs.x) + dx : dx}
+			y={attribs.y != null ? Number.parseFloat(attribs.y) + dy : dy}
 		>
 			{textChildren}
 		</Text>

@@ -1,4 +1,4 @@
-async function main() {
+async function build() {
 	// Generate bundle
 	await Bun.build({
 		entrypoints: ['./src/index.ts'],
@@ -26,6 +26,4 @@ async function main() {
 	return console.log(`✅ DONE! ${stdoutStr}`);
 }
 
-await main();
-
-export {};
+build();
