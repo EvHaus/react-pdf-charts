@@ -7,10 +7,10 @@ import type { TagElementType } from './types';
 export const convertUnits = (value: string) => {
 	if (value.endsWith('em')) {
 		const [val] = value.split('em');
-		return Math.round(parseFloat(val) * BASE_FONT_SIZE);
+		return Math.round(Number.parseFloat(val) * BASE_FONT_SIZE);
 	}
 
-	return parseFloat(value);
+	return Number.parseFloat(value);
 };
 
 // Because <tspan> elements are broken in react-pdf, if those <tspan>'s have
