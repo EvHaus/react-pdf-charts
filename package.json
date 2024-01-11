@@ -15,10 +15,9 @@
 	"type": "module",
 	"exports": "./dist/index.js",
 	"scripts": {
-		"biome:format": "biome format --write .",
-		"biome:lint": "biome check --apply-unsafe . && biome check .",
+		"biome:check": "biome check --apply-unsafe .",
 		"build": "NODE_ENV=production bun ./build.ts",
-		"lint": "bun typescript && bun biome:format && bun biome:lint && bun packagelint",
+		"lint": "bun typescript && bun biome:check && bun packagelint",
 		"packagelint": "prettier-package-json --use-tabs --write ./package.json",
 		"semantic-release": "semantic-release",
 		"start": "bun examples/index.ts",
