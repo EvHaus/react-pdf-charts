@@ -23,7 +23,8 @@
 				"noVoid": "error"
 			},
 			"correctness": {
-				"useExhaustiveDependencies": "off"
+				"useExhaustiveDependencies": "off",
+				"useHookAtTopLevel": "error"
 			},
 			"nursery": {
 				"useAwait": "error",
