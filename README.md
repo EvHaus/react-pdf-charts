@@ -142,6 +142,8 @@ You can re-run the examples by downloading this repository, running `bun install
 
 There's also `/examples/client` which is a small little web server which you can use to test `react-pdf`'s web-only APIs like `PDFViewer` and `PDFDownloadLink`. To run that example, use `cd examples/client && bun install && bun start`.
 
+You can also play around with the library on StackBlitz [here](https://stackblitz.com/edit/react-pdf-charts-starter?file=src%2FApp.tsx).
+
 ### Known Issues
 
 - [ ] Only `recharts` and `victory` have been tested. In theory `react-pdf-charts` should work with others charting libraries (like `highcharts`) but those haven't been tested yet.
