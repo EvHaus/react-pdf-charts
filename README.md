@@ -110,7 +110,7 @@ const SomeComponent = () => (
 );
 ```
 
-From there you can pass `SomeComponent` to `react-pdf` to be rendered either on the server or the client via it's rendering APIs.
+From there you can pass `SomeComponent` to `react-pdf` to be rendered either on the server or the client via its rendering APIs.
 
 ## Props
 
