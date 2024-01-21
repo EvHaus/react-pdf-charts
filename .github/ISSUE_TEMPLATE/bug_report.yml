@@ -30,7 +30,7 @@ body:
       options:
         - label: Check that there isn't [already an issue](https://github.com/EvHaus/react-pdf-charts/issues) that reports the same bug to avoid creating a duplicate.
           required: true
-        - label: Check that you're confident that this is a legitimate bug. To ask a question open a [GitHub Discussion](https://github.com/vitest-dev/vitest/discussions).
+        - label: Check that you're confident that this is a legitimate bug. To ask a question open a [GitHub Discussion](https://github.com/EvHaus/react-pdf-charts/discussions).
           required: true
         - label: The provided reproduction is a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example) of the bug.
           required: true
