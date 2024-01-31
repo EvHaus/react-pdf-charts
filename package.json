@@ -46,7 +46,7 @@
 		"recharts": "2.11.0",
 		"semantic-release": "23.0.0",
 		"typescript": "5.3.3",
-		"victory": "36.8.4"
+		"victory": "36.8.5"
 	},
 	"engines": {
 		"node": ">=16"
