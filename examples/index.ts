@@ -1,15 +1,15 @@
 // Silence `useLayoutEffect does nothing on the server` warnings. These come
 // from `recharts` but they're harmless and just clutter the console output.
 const consoleError = console.error;
-console.error = (message) => {
+console.error = (...args) => {
 	if (
-		message.startsWith('Warning: useLayoutEffect does nothing on the server')
+		typeof args[0] === 'string' &&
+		args[0]?.startsWith('Warning: useLayoutEffect does nothing on the server')
 	) {
 		return;
 	}
-	// @ts-expect-error Skipping type checking
-	// biome-ignore lint/style/noArguments: Monkeypatching on purpose
-	consoleError.apply(console, arguments);
+
+	consoleError(...args);
 };
 
 const main = async () => {
