@@ -342,6 +342,22 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 	return parse(svgString, htmlReactParserOptions);
 };
 
+/**
+ * Wrapper used to convert web-based SVG elements into `react-pdf` SVG elements.
+ * @param chartStyle {Style} An optional [Stylesheet](https://react-pdf.org/styling) that maps web CSS class names to whatever `react-pdf` styles you wish to replace those classes with.
+ * @param debug {boolean} Enables `react-pdf` [debugging mode](https://react-pdf.org/advanced#debugging) for the outer wrapper element.
+ * @param style {Style} An optional [style](https://react-pdf.org/styling) that will get applied to the outer element of the wrapper component.
+ * @example
+ *  <ReactPDFChart>
+ *    <LineChart data={data} height={300} width={500}>
+ *        <XAxis dataKey="name" />
+ *      <YAxis />
+ *      <CartesianGrid stroke="#eee" strokeDasharray="5" />
+ *      <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+ *      <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
+ *    </LineChart>
+ *  </ReactPDFChart>
+ */
 const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
 	const component = webSvgToPdfSvg(children, chartStyle);
 
