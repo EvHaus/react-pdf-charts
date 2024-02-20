@@ -6,7 +6,7 @@ async function build() {
 
 	// Generate bundle
 	await Bun.build({
-		entrypoints: ['./src/index.ts'],
+		entrypoints: ['./src/index.tsx'],
 		external: [
 			'@react-pdf/renderer',
 			'@react-pdf/types',
