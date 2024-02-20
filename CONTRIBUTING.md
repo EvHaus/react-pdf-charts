@@ -14,5 +14,5 @@ To test client-side rendering, you can run `cd examples/client && bun install &&
 
 ## Building
 
-To prepare a new release run `bun dist` which will generate the necessary output files in `/dist`.
+To prepare a new release run `bun run build` which will generate the necessary output files in `/dist`.
 

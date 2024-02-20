@@ -1,4 +1,9 @@
+import { rm } from 'node:fs/promises';
+
 async function build() {
+	// Delete dist folder
+	await rm('./dist', { force: true, recursive: true });
+
 	// Generate bundle
 	await Bun.build({
 		entrypoints: ['./src/index.ts'],
