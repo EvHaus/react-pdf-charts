@@ -79,7 +79,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 
 	if (!svgString?.length) {
 		throw new Error(
-			`<ReactPDFChart /> was unable to convert your chart into static markup. The most common reason for this is that your chart is missing a "height" or "width". If you think it's a different problem, please report this issue.`,
+			`[react-pdf-charts]: <ReactPDFChart /> was unable to convert your chart into static markup. The most common reason for this is that your chart is missing a "height" or "width". If you think it's a different problem, please report this issue.`,
 		);
 	}
 
@@ -124,7 +124,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						const [first, second] = value.split(' ');
 						if (first !== second) {
 							throw new Error(
-								`Your chart rendered a (${name}) element with a "${first}" value that's not supported: ${value}.`,
+								`[react-pdf-charts]: Your chart rendered a (${name}) element with a "${first}" value that's not supported: ${value}.`,
 							);
 						}
 						value = first;
@@ -330,12 +330,12 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 			}
 
 			throw new Error(
-				`Your chart rendered a <${name} /> node which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
+				`[react-pdf-charts]: Your chart rendered a <${name} /> node which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
 			);
 		}
 
 		throw new Error(
-			`Your chart rendered a node type (${node.type}) which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
+			`[react-pdf-charts]: Your chart rendered a node type (${node.type}) which isn't supported by <ReactPDFChart /> yet. Please report this issue.`,
 		);
 	}
 
@@ -367,7 +367,7 @@ const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
 	// This should never happen (as far as I know) but it's here for type safety
 	if (Array.isArray(component)) {
 		throw new Error(
-			`<ReactPDFChart />'s webSvgToPdfSvg() method returned an array. Which isn't supported at the moment. Please report this issue.`,
+			`[react-pdf-charts]: <ReactPDFChart />'s webSvgToPdfSvg() method returned an array. Which isn't supported at the moment. Please report this issue.`,
 		);
 	}
 
