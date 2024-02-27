@@ -14,10 +14,10 @@
 		"react-pdf-charts": "file:../../"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.24",
-		"@types/react-dom": "^18.2.8",
-		"@vitejs/plugin-react": "^4.1.0",
-		"typescript": "^5.2.2",
-		"vite": "^4.4.10"
+		"@types/react": "^18.2.59",
+		"@types/react-dom": "^18.2.19",
+		"@vitejs/plugin-react": "^4.2.1",
+		"typescript": "^5.3.3",
+		"vite": "^5.1.4"
 	}
 }
