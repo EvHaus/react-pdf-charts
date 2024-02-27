@@ -294,6 +294,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						<Svg
 							{...baseProps}
 							height={attribs.height}
+							style={getElementStyle(attribs, chartStyle)}
 							viewBox={attribs.viewBox}
 							width={attribs.width}
 						>
