@@ -23,40 +23,36 @@
 				"noVoid": "error"
 			},
 			"correctness": {
+				"noUnusedImports": "error",
+				"noUnusedPrivateClassMembers": "error",
+				"noUnusedVariables": "error",
 				"useExhaustiveDependencies": "off",
 				"useHookAtTopLevel": "error"
 			},
 			"nursery": {
-				"useAwait": "error",
+				"noBarrelFile": "warn",
 				"noDuplicateJsonKeys": "error",
-				"noEmptyTypeParameters": "error",
-				"noGlobalAssign": "error",
-				"noGlobalEval": "error",
-				"noMisleadingCharacterClass": "error",
-				"noThenProperty": "error",
-				"noUnusedImports": "error",
+				"noExportsInTest": "error",
+				"noFocusedTests": "error",
+				"noNamespaceImport": "error",
+				"noSemicolonInJsx": "error",
 				"noUselessTernary": "error",
+				"useSortedClasses": "error"
+			},
+			"style": {
+				"useCollapsedElseIf": "error",
 				"useConsistentArrayType": {
 					"level": "error",
 					"options": {
 						"syntax": "generic"
 					}
 				},
-				"useExportType": "error",
-				"useImportType": "error",
-				"useGroupedTypeImport": "error",
-				"useNodejsImportProtocol": "error",
-				"useNumberNamespace": "error",
-				"useShorthandFunctionType": "error"
-			},
-			"style": {
-				"useCollapsedElseIf": "error",
 				"useShorthandAssign": "error"
 			},
 			"suspicious": {
-				"noApproximativeNumericConstant": "error",
+				"useAwait": "error",
 				"noConsoleLog": "error",
-				"noMisrefactoredShorthandAssign": "error"
+				"noEmptyBlockStatements": "error"
 			}
 		}
 	},
