@@ -45,7 +45,7 @@
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.12.3",
 		"semantic-release": "<23.0.0",
-		"typescript": "5.4.2",
+		"typescript": "5.4.3",
 		"victory": "37.0.0"
 	},
 	"engines": {
