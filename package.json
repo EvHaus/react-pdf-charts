@@ -38,7 +38,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.6.2",
 		"@types/node": "20.11.30",
-		"@types/react": "18.2.69",
+		"@types/react": "18.2.70",
 		"@types/react-dom": "18.2.22",
 		"bun-types": "1.0.35",
 		"lefthook": "1.6.7",
