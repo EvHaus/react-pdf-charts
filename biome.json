@@ -35,7 +35,7 @@
 				"noExportsInTest": "error",
 				"noFocusedTests": "error",
 				"noNamespaceImport": "error",
-				"noSemicolonInJsx": "error",
+				"noSuspiciousSemicolonInJsx": "error",
 				"noUselessTernary": "error",
 				"useSortedClasses": "error"
 			},
