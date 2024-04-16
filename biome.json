@@ -30,16 +30,14 @@
 				"useHookAtTopLevel": "error"
 			},
 			"nursery": {
-				"noBarrelFile": "warn",
 				"noDuplicateJsonKeys": "error",
-				"noExportsInTest": "error",
-				"noFocusedTests": "error",
-				"noNamespaceImport": "error",
-				"noSuspiciousSemicolonInJsx": "error",
-				"noUselessTernary": "error",
 				"useSortedClasses": "error"
 			},
+			"performance": {
+				"noBarrelFile": "warn"
+			},
 			"style": {
+				"noNamespaceImport": "error",
 				"useCollapsedElseIf": "error",
 				"useConsistentArrayType": {
 					"level": "error",
