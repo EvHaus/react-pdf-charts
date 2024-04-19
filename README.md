@@ -147,7 +147,7 @@ You can also play around with the library on StackBlitz [here](https://stackblit
 ### Known Issues
 
 - [ ] Only `recharts` and `victory` have been tested. In theory `react-pdf-charts` should work with others charting libraries (like `highcharts`) but those haven't been tested yet.
-- [ ] When rendering `<Bar />` and `<Area />` charts with `recharts` using client-side rendering (ie. `<PDFViewer>` or `<PDFDownloadLink>`), it's important to set `isAnimationActive={false}` on your `<Bar />` compoments otherwise the chart will not render correctly ([more info](https://github.com/EvHaus/react-pdf-charts/issues/51#issuecomment-1712407584)). Perhaps in the future `react-pdf-charts` could auto-detect this and disable animations automatically.
+- [ ] When rendering chart elements, the boolean prop `isAnimationActive` defaults to `{true}`. If you are rendering charts with `recharts` using client-side rendering (ie. `<PDFViewer>` or `<PDFDownloadLink>`), you must set `isAnimationActive={false}` on your chart compoments otherwise the chart will not render correctly ([more info](https://github.com/EvHaus/react-pdf-charts/issues/51#issuecomment-1712407584)). `recharts` chart components that support the `isAnimationActive` prop include: `<Area /> <Bar /> <Line /> <Pie /> <Radar /> <RadialBar /> <Scatter />` and `<Treemap />`. Perhaps in the future `react-pdf-charts` could auto-detect this and disable animations automatically.
 
 ## Other Solutions
 
