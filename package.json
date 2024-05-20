@@ -27,13 +27,13 @@
 	},
 	"types": "./dist/index.d.ts",
 	"dependencies": {
-		"@react-pdf/types": "^2.3.3",
+		"@react-pdf/types": "^2.5.0",
 		"html-react-parser": "^5.0.0"
 	},
 	"peerDependencies": {
-		"@react-pdf/renderer": "^3.1.12",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"@react-pdf/renderer": "^3.4.4",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
