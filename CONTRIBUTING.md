@@ -10,7 +10,7 @@ This repository requires using [Bun](https://bun.sh/) as your runtime.
 
 You can run a local development server by running `bun run start:dev` which will monitor for any changes and rebuild the examples on every code change. The output will be a bunch of `.pdf` files in the `/examples` directory for testing server-side `react-pdf` rendering.
 
-To test client-side rendering, you can run `cd examples/client && bun install && bun start` which will start a web server that allows you to test the `react-pdf` client-side render support.
+To test client-side rendering, you can run `cd examples/client && bun install && bun start` which will start a web server that allows you to test the `react-pdf` client-side render support. Make sure to run `bun run build` in the root of the repo to rebuild the `react-pdf-charts` library before running the client example.
 
 ## Building
 
