@@ -15,7 +15,7 @@
 	"type": "module",
 	"exports": "./dist/index.js",
 	"scripts": {
-		"biome:check": "biome check --apply-unsafe .",
+		"biome:check": "biome check --write",
 		"build": "NODE_ENV=production bun ./build.ts",
 		"lint": "bun typescript && bun biome:check && bun packagelint",
 		"packagelint": "prettier-package-json --use-tabs --write ./package.json",

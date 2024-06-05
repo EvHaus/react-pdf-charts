@@ -12,7 +12,7 @@ pre-commit:
       stage_fixed: true
     biome-lint:
       glob: "*.{js,jsx,ts,tsx}"
-      run: bun run biome check --apply-unsafe {staged_files}
+      run: bun run biome check --write {staged_files}
       stage_fixed: true
     prettier-package-json:
       glob: "package.json"
