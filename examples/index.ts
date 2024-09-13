@@ -17,8 +17,7 @@ const main = async () => {
 	await import('./recharts-composed');
 	await import('./victory-basic');
 
-	// biome-ignore lint/suspicious/noConsoleLog: <explanation>
-	return console.log('✅ /examples updated!');
+	return console.debug('✅ /examples updated!');
 };
 
 main();
