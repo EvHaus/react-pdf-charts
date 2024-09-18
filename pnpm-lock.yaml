@@ -37,8 +37,8 @@ importers:
         specifier: 18.3.0
         version: 18.3.0
       bun-types:
-        specifier: 1.1.27
-        version: 1.1.27
+        specifier: 1.1.28
+        version: 1.1.28
       lefthook:
         specifier: 1.7.15
         version: 1.7.15
@@ -417,8 +417,8 @@ packages:
   browserify-zlib@0.2.0:
     resolution: {integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==}
 
-  bun-types@1.1.27:
-    resolution: {integrity: sha512-rHXAiIDefeMS/fleNM1rRDYqolJGNRdch3+AuCRwcZWaqTa1vjGBNsahH/HVV7Y82frllYhJomCVSEiHzLzkgg==}
+  bun-types@1.1.28:
+    resolution: {integrity: sha512-XiWHzHZIxkgssHSUwJVrkUDHvwhHzE9mrFUMXZ3BKqNiGzL0n/fB/XUQZibcHjg0SvW/Tt5WUNeKmiM9njuy/w==}
 
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -2393,7 +2393,7 @@ snapshots:
     dependencies:
       pako: 1.0.11
 
-  bun-types@1.1.27:
+  bun-types@1.1.28:
     dependencies:
       '@types/node': 20.12.14
       '@types/ws': 8.5.12
