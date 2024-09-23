@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@react-pdf/renderer':
-        specifier: ^3.4.4
+        specifier: ^3.4.4 || ^4.0.0
         version: 3.4.4(react@18.3.1)
       '@react-pdf/types':
         specifier: ^2.5.0
@@ -239,9 +239,6 @@ packages:
 
   '@react-pdf/textkit@4.4.1':
     resolution: {integrity: sha512-Jl9wdTqIvJ5pX+vAGz0EOhP7ut5Two9H6CzTKo/YYPeD79cM2yTXF3JzTERBC28y7LR0Waq9D2LHQjI+b/EYUQ==}
-
-  '@react-pdf/types@2.5.0':
-    resolution: {integrity: sha512-XsVRkt0hQ60I4e3leAVt+aZR3KJCaJd179BfJHAv4F4x6Vq3yqkry8lcbUWKGKDw1j3/8sW4FsgGR41SFvsG9A==}
 
   '@react-pdf/types@2.7.0':
     resolution: {integrity: sha512-7KrPPCpgRPKR+g+T127PE4bpw9Q84ZiY07EYRwXKVtTEVW9wJ5BZiF9smT9IvH19s+MQaDLmYRgjESsnqlyH0Q==}
@@ -2092,7 +2089,7 @@ snapshots:
   '@react-pdf/font@2.5.1':
     dependencies:
       '@babel/runtime': 7.25.6
-      '@react-pdf/types': 2.5.0
+      '@react-pdf/types': 2.7.0
       cross-fetch: 3.1.8
       fontkit: 2.0.4
       is-url: 1.2.4
@@ -2117,7 +2114,7 @@ snapshots:
       '@react-pdf/primitives': 3.1.1
       '@react-pdf/stylesheet': 4.2.5
       '@react-pdf/textkit': 4.4.1
-      '@react-pdf/types': 2.5.0
+      '@react-pdf/types': 2.7.0
       cross-fetch: 3.1.8
       emoji-regex: 10.4.0
       queue: 6.0.2
@@ -2147,7 +2144,7 @@ snapshots:
       '@react-pdf/fns': 2.2.1
       '@react-pdf/primitives': 3.1.1
       '@react-pdf/textkit': 4.4.1
-      '@react-pdf/types': 2.5.0
+      '@react-pdf/types': 2.7.0
       abs-svg-path: 0.1.1
       color-string: 1.9.1
       normalize-svg-path: 1.1.0
@@ -2162,7 +2159,7 @@ snapshots:
       '@react-pdf/pdfkit': 3.1.10
       '@react-pdf/primitives': 3.1.1
       '@react-pdf/render': 3.4.4
-      '@react-pdf/types': 2.5.0
+      '@react-pdf/types': 2.7.0
       events: 3.3.0
       object-assign: 4.1.1
       prop-types: 15.8.1
@@ -2176,7 +2173,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       '@react-pdf/fns': 2.2.1
-      '@react-pdf/types': 2.5.0
+      '@react-pdf/types': 2.7.0
       color-string: 1.9.1
       hsl-to-hex: 1.0.0
       media-engine: 1.0.3
@@ -2189,8 +2186,6 @@ snapshots:
       bidi-js: 1.0.3
       hyphen: 1.10.5
       unicode-properties: 1.4.1
-
-  '@react-pdf/types@2.5.0': {}
 
   '@react-pdf/types@2.7.0': {}
 
