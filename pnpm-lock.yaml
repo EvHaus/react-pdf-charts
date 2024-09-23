@@ -13,7 +13,7 @@ importers:
         version: 3.4.4(react@18.3.1)
       '@react-pdf/types':
         specifier: ^2.5.0
-        version: 2.6.0
+        version: 2.7.0
       html-react-parser:
         specifier: ^5.0.0
         version: 5.1.16(@types/react@18.3.8)(react@18.3.1)
@@ -243,8 +243,8 @@ packages:
   '@react-pdf/types@2.5.0':
     resolution: {integrity: sha512-XsVRkt0hQ60I4e3leAVt+aZR3KJCaJd179BfJHAv4F4x6Vq3yqkry8lcbUWKGKDw1j3/8sW4FsgGR41SFvsG9A==}
 
-  '@react-pdf/types@2.6.0':
-    resolution: {integrity: sha512-iRF5WX6uek9rud/t6TC5srH8f80siGICNh0KvvV1+YoNVJfvpwQW4BEuG4C0VSQbZU0qkA/OLZthFoYyiCqmcg==}
+  '@react-pdf/types@2.7.0':
+    resolution: {integrity: sha512-7KrPPCpgRPKR+g+T127PE4bpw9Q84ZiY07EYRwXKVtTEVW9wJ5BZiF9smT9IvH19s+MQaDLmYRgjESsnqlyH0Q==}
 
   '@sec-ant/readable-stream@0.4.1':
     resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
@@ -2192,7 +2192,7 @@ snapshots:
 
   '@react-pdf/types@2.5.0': {}
 
-  '@react-pdf/types@2.6.0': {}
+  '@react-pdf/types@2.7.0': {}
 
   '@sec-ant/readable-stream@0.4.1': {}
 
