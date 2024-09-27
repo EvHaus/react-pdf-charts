@@ -94,8 +94,8 @@ export const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
 					style.strokeWidth = value;
 					break;
 				case 'stroke-linecap':
-					style.strokeLineCap =
-						value as SVGPresentationAttributes['strokeLineCap'];
+					style.strokeLinecap =
+						value as SVGPresentationAttributes['strokeLinecap'];
 					break;
 				default:
 				// This warning is super noisy, but can be helpful when debugging
