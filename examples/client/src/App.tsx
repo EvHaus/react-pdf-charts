@@ -16,7 +16,7 @@ const MyDocument = () => (
 	<Document>
 		<Page size='A4'>
 			<ReactPDFChart>
-				<BarChart data={data} width={500} height={300}>
+				<BarChart data={data} height={300} width={500}>
 					<XAxis dataKey='name' />
 					<YAxis />
 					<CartesianGrid stroke='#ccc' strokeDasharray='3 3' />

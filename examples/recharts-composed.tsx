@@ -73,10 +73,10 @@ const MyDocument = () => (
 					<XAxis dataKey='name' />
 					<YAxis />
 					<CartesianGrid stroke='#f5f5f5' />
-					<Area type='monotone' dataKey='amt' fill='#8884d8' stroke='#8884d8' />
+					<Area dataKey='amt' fill='#8884d8' stroke='#8884d8' type='monotone' />
 					<Bar dataKey='pv' fill='#413ea0' stackId='stack' />
 					<Bar dataKey='uw' fill='#ffbb00' stackId='stack' />
-					<Line type='monotone' dataKey='uv' stroke='#ff7300' />
+					<Line dataKey='uv' stroke='#ff7300' type='monotone' />
 					<Legend />
 				</ComposedChart>
 			</ReactPDFChart>

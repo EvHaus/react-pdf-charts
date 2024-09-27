@@ -185,11 +185,11 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					return (
 						<Line
 							{...baseProps}
+							style={getSvgElementStyle(attribs)}
 							x1={attribs.x1}
 							x2={attribs.x2}
 							y1={attribs.y1}
 							y2={attribs.y2}
-							style={getSvgElementStyle(attribs)}
 						>
 							{children}
 						</Line>

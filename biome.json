@@ -1,5 +1,12 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assists": {
+		"actions": {
+			"source": {
+				"sortJsxProps": "on"
+			}
+		}
+	},
 	"css": {
 		"formatter": {
 			"quoteStyle": "single"

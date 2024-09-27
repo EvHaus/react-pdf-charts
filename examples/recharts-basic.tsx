@@ -57,8 +57,8 @@ const MyDocument = () => (
 					<XAxis dataKey='name' />
 					<YAxis />
 					<CartesianGrid stroke='#eee' strokeDasharray='5' />
-					<Line type='monotone' dataKey='uv' stroke='#8884d8' />
-					<Line type='monotone' dataKey='pv' stroke='#82ca9d' />
+					<Line dataKey='uv' stroke='#8884d8' type='monotone' />
+					<Line dataKey='pv' stroke='#82ca9d' type='monotone' />
 				</LineChart>
 			</ReactPDFChart>
 		</Page>
