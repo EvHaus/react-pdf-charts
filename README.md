@@ -1,7 +1,7 @@
 <div align="center">
 <h1>react-pdf-charts 📊</h1>
 
-<p>Allows you to use popular SVG charting libraries (like `recharts`) in your `react-pdf` PDF documents.</p>
+<p>Allows you to use popular SVG charting libraries (like <code>recharts</code>) in your <code>react-pdf</code> PDF documents.</p>
 </div>
 
 ---
