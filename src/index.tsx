@@ -41,30 +41,15 @@ const renderTextElement = ({
 	const { attribs } = node;
 	const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
 
-	let tSpanChildNode: JSX.Element | undefined;
 	const textChildren = React.Children.map(children, (child) => {
 		if (!child || typeof child === 'string') return child;
-
-		// TSpan elements are broken in react-pdf. This will
-		// convert them to plain text until the issue is fixed:
-		// https://github.com/diegomura/react-pdf/issues/2003
-		if (child.type === 'TSPAN') {
-			tSpanChildNode = child;
-			return child.props.children;
-		}
-
 		return child;
 	});
-
-	// If there's a TSpan child, we need to merge its styles with the node ones
-	const additionalStyle = tSpanChildNode
-		? (tSpanChildNode as JSX.Element).props.style
-		: null;
 
 	return (
 		<Text
 			{...baseProps}
-			style={getElementStyle(attribs, chartStyle, additionalStyle)}
+			style={getElementStyle(attribs, chartStyle)}
 			x={attribs.x != null ? Number.parseFloat(attribs.x) + dx : dx}
 			y={attribs.y != null ? Number.parseFloat(attribs.y) + dy : dy}
 		>
