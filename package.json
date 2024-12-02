@@ -42,7 +42,7 @@
 		"bun-types": "1.1.38",
 		"lefthook": "1.8.5",
 		"prettier-package-json": "2.8.0",
-		"recharts": "2.13.3",
+		"recharts": "2.14.0",
 		"semantic-release": "<23.0.0",
 		"typescript": "5.7.2",
 		"victory": "37.3.2"
