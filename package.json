@@ -32,13 +32,13 @@
 	},
 	"peerDependencies": {
 		"@react-pdf/renderer": "^4.1.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
+		"react": "^18.3.1 || ^19.0.0",
+		"react-dom": "^18.3.1 || ^19.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/react": "18.3.14",
-		"@types/react-dom": "18.3.2",
+		"@types/react": "19.0.0",
+		"@types/react-dom": "19.0.0",
 		"bun-types": "1.1.38",
 		"lefthook": "1.8.5",
 		"prettier-package-json": "2.8.0",
