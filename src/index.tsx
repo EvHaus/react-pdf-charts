@@ -35,7 +35,7 @@ const renderTextElement = ({
 }: {
 	baseProps: SVGPresentationAttributes;
 	chartStyle?: Style;
-	children: string | JSX.Element | Array<JSX.Element>;
+	children: string | React.JSX.Element | Array<React.JSX.Element>;
 	node: TagElementType;
 }) => {
 	const { attribs } = node;
