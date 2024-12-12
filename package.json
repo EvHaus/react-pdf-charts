@@ -40,7 +40,7 @@
 		"@types/react": "19.0.1",
 		"@types/react-dom": "19.0.2",
 		"bun-types": "1.1.38",
-		"lefthook": "1.9.0",
+		"lefthook": "1.9.1",
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.14.1",
 		"semantic-release": "<23.0.0",
