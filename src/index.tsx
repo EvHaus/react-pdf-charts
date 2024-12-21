@@ -68,6 +68,8 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 		);
 	}
 
+	const collectedDefs: Array<React.ReactNode> = [];
+
 	const htmlReactParserOptions: HTMLReactParserOptions = {
 		replace: replaceHtmlWithPdfSvg,
 	};
@@ -145,7 +147,8 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 				case 'clippath':
 					return <ClipPath {...baseProps}>{children}</ClipPath>;
 				case 'defs':
-					return <Defs {...baseProps}>{children}</Defs>;
+					collectedDefs.push(children);
+					return <></>;
 				case 'desc':
 					// Not supported in react-pdf. Rendering will be skipped.
 					return <></>;
@@ -268,8 +271,8 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						<Stop
 							{...baseProps}
 							offset={attribs.offset}
-							stopColor={attribs.stopColor}
-							stopOpacity={attribs.stopOpacity}
+							stopColor={attribs['stop-color']}
+							stopOpacity={attribs['stop-opacity']}
 						>
 							{children}
 						</Stop>
@@ -283,6 +286,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							viewBox={attribs.viewBox}
 							width={attribs.width}
 						>
+							<Defs {...baseProps}>{collectedDefs}</Defs>
 							{children}
 						</Svg>
 					);
