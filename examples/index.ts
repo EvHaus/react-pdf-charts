@@ -16,6 +16,7 @@ const main = async () => {
 	await import('./recharts-basic');
 	await import('./recharts-composed');
 	await import('./victory-basic');
+	await import('./recharts-gradient');
 
 	return console.debug('✅ /examples updated!');
 };
