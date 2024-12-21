@@ -8,18 +8,16 @@ pre-commit:
   commands:
     biome-format:
       glob: "*.{js,jsx,ts,tsx}"
-      run: bun run biome format --write {staged_files}
+      run: npx bun run biome format --write {staged_files}
       stage_fixed: true
     biome-lint:
       glob: "*.{js,jsx,ts,tsx}"
-      run: bun run biome check --write {staged_files}
+      run: npx bun run biome check --write {staged_files}
       stage_fixed: true
     prettier-package-json:
       glob: "package.json"
-      run: bun run prettier-package-json --use-tabs --write {staged_files}
+      run: npx bun run prettier-package-json --use-tabs --write {staged_files}
       stage_fixed: true
     typescript:
       glob: "*.{ts,tsx}"
-      run: bun run tsc --project ./tsconfig.json --noEmit
-      
-       
+      run: npx bun run tsc --project ./tsconfig.json --noEmit
