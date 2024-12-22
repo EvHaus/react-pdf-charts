@@ -18,7 +18,7 @@ body:
     id: reproduction
     attributes:
       label: Reproduction
-      description: Please provide a link to [StackBlitz](https://stackblitz.com/edit/react-pdf-charts-starter?file=src%2FApp.tsx) or a GitHub repo that can reproduce the problem you ran into. A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is encouraged unless you are absolutely sure that the issue is obvious and the provided information is enough to understand the problem. If a report is vague (e.g. just a generic error message) and has no reproduction, it may simply get auto-closed.
+      description: Provide a GitHub repo that can reproduce the problem you ran into or clone [this StackBlitz](https://stackblitz.com/edit/react-pdf-charts-starter?file=src%2FApp.tsx) project and create a minimal reproduction within it. A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is encouraged unless you are absolutely sure that the issue is obvious and the provided information is enough to understand the problem. If a report is vague (e.g. just a generic error message) and has no reproduction, it may simply get auto-closed.
       placeholder: Explain how your bug can be reproduced
     validations:
       required: true
