@@ -147,6 +147,9 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 				case 'clippath':
 					return <ClipPath {...baseProps}>{children}</ClipPath>;
 				case 'defs':
+					// Due to https://github.com/diegomura/react-pdf/issues/3004,
+					// we can't simply render Defs here. Instead we need to collect
+					// them all and render them as part of the <Svg> element.
 					collectedDefs.push(children);
 					return <></>;
 				case 'desc':
@@ -286,6 +289,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							viewBox={attribs.viewBox}
 							width={attribs.width}
 						>
+							{/* See comment above (in Defs case) */}
 							<Defs {...baseProps}>{collectedDefs}</Defs>
 							{children}
 						</Svg>
