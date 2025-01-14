@@ -28,10 +28,10 @@
 	"types": "./dist/index.d.ts",
 	"dependencies": {
 		"@react-pdf/types": "^2.5.0",
-		"html-react-parser": "^5.2.0"
+		"html-react-parser": "^5.2.2"
 	},
 	"peerDependencies": {
-		"@react-pdf/renderer": "^4.1.5",
+		"@react-pdf/renderer": "4.1.6",
 		"react": "^18.3.1 || ^19.0.0",
 		"react-dom": "^18.3.1 || ^19.0.0"
 	},
