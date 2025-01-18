@@ -15,8 +15,9 @@ console.error = (...args) => {
 const main = async () => {
 	await import('./recharts-basic');
 	await import('./recharts-composed');
-	await import('./victory-basic');
 	await import('./recharts-gradient');
+	await import('./recharts-images');
+	await import('./victory-basic');
 
 	return console.debug('✅ /examples updated!');
 };

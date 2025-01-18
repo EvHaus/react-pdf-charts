@@ -54,7 +54,19 @@ export const getElementStyle = (
 			const [rawKey, value] = styleString.split(':');
 			const key = rawKey.toLowerCase();
 
-			if (['backgroundColor', 'color', 'fill'].includes(key)) {
+			if (
+				[
+					'backgroundColor',
+					'border',
+					'bottom',
+					'color',
+					'left',
+					'fill',
+					'position',
+					'right',
+					'top',
+				].includes(key)
+			) {
 				style.push({ [key]: value });
 			} else if (key === 'font-size') {
 				style.push({ fontSize: convertUnits(value) });

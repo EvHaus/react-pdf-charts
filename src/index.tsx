@@ -4,6 +4,7 @@ import {
 	Defs,
 	Ellipse,
 	G,
+	Image,
 	Line,
 	LinearGradient,
 	Path,
@@ -172,6 +173,22 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 					);
 				case 'g':
 					return <G {...baseProps}>{children}</G>;
+				case 'img':
+					return (
+						<Image
+							src={attribs.src}
+							style={getElementStyle(attribs, chartStyle, {
+								height: attribs.height,
+								width: attribs.width,
+							})}
+						/>
+					);
+				case 'li':
+					return (
+						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+							{children}
+						</View>
+					);
 				case 'line':
 					return (
 						<Line
@@ -184,12 +201,6 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 						>
 							{children}
 						</Line>
-					);
-				case 'li':
-					return (
-						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
-							{children}
-						</View>
 					);
 				case 'lineargradient':
 					return (
@@ -204,6 +215,9 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
 							{children}
 						</LinearGradient>
 					);
+				case 'link':
+					// Not supported in react-pdf. Rendering will be skipped.
+					return <></>;
 				case 'path':
 					return (
 						<Path

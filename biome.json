@@ -60,7 +60,6 @@
 				"noExportedImports": "error",
 				"noHeadElement": "error",
 				"noHeadImportInDocument": "error",
-				"noImgElement": "error",
 				"noIrregularWhitespace": "error",
 				"noNestedTernary": "error",
 				"noOctalEscape": "error",
