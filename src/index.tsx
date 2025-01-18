@@ -353,16 +353,14 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
  *  </ReactPDFChart>
  */
 const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
-	const component = webSvgToPdfSvg(children, chartStyle);
+	let component = webSvgToPdfSvg(children, chartStyle);
 
 	// This should never happen, but it's here for type safety
 	if (!component || typeof component === 'string') return <>{component}</>;
 
 	// This should never happen (as far as I know) but it's here for type safety
 	if (Array.isArray(component)) {
-		throw new Error(
-			`[react-pdf-charts]: <ReactPDFChart />'s webSvgToPdfSvg() method returned an array. Which isn't supported at the moment. Please report this issue.`,
-		);
+		component = <View>{component}</View>;
 	}
 
 	return React.cloneElement(component, { debug, style });
