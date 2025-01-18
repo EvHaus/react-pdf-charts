@@ -41,6 +41,7 @@
 		"@types/react-dom": "19.0.3",
 		"bun-types": "1.1.45",
 		"lefthook": "1.10.8",
+		"ms": "2.1.3",
 		"prettier-package-json": "2.8.0",
 		"recharts": "2.15.0",
 		"semantic-release": "<23.0.0",
@@ -52,6 +53,7 @@
 	},
 	"comments": {
 		"devDependencies": {
+			"ms": "Needed for semantic-release for some reason",
 			"semantic-release": "Need to lock to pre-23.0.0 until oven-sh/setup-bun supports Node 20+, otherwise 'Release' builds fail with '[semantic-release]: node version >=20.8.1 is required. Found v18.19.0.'"
 		}
 	}
