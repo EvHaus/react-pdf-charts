@@ -60,7 +60,10 @@ const renderTextElement = ({
 };
 
 // Converts a web-based SVG element to a react-pdf SVG element
-const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
+export const convertHTMLToPDF = (
+	children: React.ReactElement,
+	chartStyle?: Style,
+) => {
 	const svgString = renderToStaticMarkup(children);
 
 	if (!svgString?.length) {
@@ -358,7 +361,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
  * @example
  *  <ReactPDFChart>
  *    <LineChart data={data} height={300} width={500}>
- *        <XAxis dataKey="name" />
+ *      <XAxis dataKey="name" />
  *      <YAxis />
  *      <CartesianGrid stroke="#eee" strokeDasharray="5" />
  *      <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -367,7 +370,7 @@ const webSvgToPdfSvg = (children: React.ReactElement, chartStyle?: Style) => {
  *  </ReactPDFChart>
  */
 const ReactPDFChart = ({ children, chartStyle, debug, style }: PropsType) => {
-	let component = webSvgToPdfSvg(children, chartStyle);
+	let component = convertHTMLToPDF(children, chartStyle);
 
 	// This should never happen, but it's here for type safety
 	if (!component || typeof component === 'string') return <>{component}</>;
