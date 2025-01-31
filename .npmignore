@@ -3,7 +3,7 @@
 biome.json
 build.ts
 bun.lockb
-bun.toml
+bunfig.toml
 CONTRIBUTING.md
 examples
 lefthook.yml
