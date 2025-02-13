@@ -72,7 +72,7 @@ export const convertHTMLToPDF = (
 		);
 	}
 
-	const collectedDefs: Array<React.ReactNode> = [];
+	const collectedDefs: Array<React.JSX.Element> = [];
 
 	const htmlReactParserOptions: HTMLReactParserOptions = {
 		replace: replaceHtmlWithPdfSvg,
@@ -154,7 +154,7 @@ export const convertHTMLToPDF = (
 					// Due to https://github.com/diegomura/react-pdf/issues/3004,
 					// we can't simply render Defs here. Instead we need to collect
 					// them all and render them as part of the <Svg> element.
-					collectedDefs.push(children);
+					collectedDefs.push(children as React.JSX.Element);
 					return <></>;
 				case 'desc':
 					// Not supported in react-pdf. Rendering will be skipped.
@@ -307,7 +307,14 @@ export const convertHTMLToPDF = (
 							width={attribs.width}
 						>
 							{/* See comment above (in Defs case) */}
-							<Defs {...baseProps}>{collectedDefs}</Defs>
+							<Defs {...baseProps}>
+								{React.Children.map(collectedDefs, (def, idx) =>
+									React.cloneElement(def, {
+										// biome-ignore lint/suspicious/noArrayIndexKey: Key choice is not critical here
+										key: `def-${idx}`,
+									}),
+								)}
+							</Defs>
 							{children}
 						</Svg>
 					);
