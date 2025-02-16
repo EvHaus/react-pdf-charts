@@ -9,7 +9,7 @@
 [![version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
 
-> **Warning**
+> [!WARNING]
 > This library is in early development and may not be production ready. Please give it a try and provide your feedback in the issues.
 
 ## The problem
