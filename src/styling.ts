@@ -67,7 +67,7 @@ export const getElementStyle = (
 					'top',
 				].includes(key)
 			) {
-				style.push({ [key]: value });
+				style.push({ [key]: value } as Style);
 			} else if (key === 'font-size') {
 				style.push({ fontSize: convertUnits(value) });
 			} else {
