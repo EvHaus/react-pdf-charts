@@ -26,7 +26,6 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { PRESENTATION_ATTRIBUTES } from './constants';
 import { getElementStyle, getSvgElementStyle } from './styling';
 import type { PropsType, TagElementType } from './types';
-import { getTspanChildrenOffsets } from './utils';
 
 const renderTextElement = ({
 	baseProps,
@@ -40,7 +39,6 @@ const renderTextElement = ({
 	node: TagElementType;
 }) => {
 	const { attribs } = node;
-	const { dx, dy } = getTspanChildrenOffsets(node as TagElementType);
 
 	const textChildren = React.Children.map(children, (child) => {
 		if (!child || typeof child === 'string') return child;
@@ -51,8 +49,8 @@ const renderTextElement = ({
 		<Text
 			{...baseProps}
 			style={getElementStyle(attribs, chartStyle)}
-			x={attribs.x != null ? Number.parseFloat(attribs.x) + dx : dx}
-			y={attribs.y != null ? Number.parseFloat(attribs.y) + dy : dy}
+			x={attribs.x}
+			y={attribs.y}
 		>
 			{textChildren}
 		</Text>
@@ -327,13 +325,14 @@ export const convertHTMLToPDF = (
 					// Not supported in react-pdf. Rendering will be skipped.
 					return <></>;
 				case 'tspan':
-					// `dx` and `dy` attributes are not supported by react-pdf
-					// See: https://github.com/diegomura/react-pdf/issues/1271
+					console.log({ baseProps, attribs });
 					return (
-						// @ts-expect-error Tspan's don't support a `style` prop,
-						// but we're going to pass it in anyway so that the
-						// `renderTextElement()` util can extract it.
-						<Tspan {...baseProps} style={getElementStyle(attribs, chartStyle)}>
+						<Tspan
+							{...baseProps}
+							dx={attribs.dx}
+							dy={attribs.dy}
+							style={getElementStyle(attribs, chartStyle)}
+						>
 							{children}
 						</Tspan>
 					);
