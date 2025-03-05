@@ -324,18 +324,33 @@ export const convertHTMLToPDF = (
 				case 'title':
 					// Not supported in react-pdf. Rendering will be skipped.
 					return <></>;
-				case 'tspan':
-					console.log({ baseProps, attribs });
+				case 'tspan': {
+					// It's common for <tspan> elements to use `rem` and `em` units
+					// which react-pdf doesn't support (https://react-pdf.org/styling#valid-units).
+					// Here we try to detect them and convert them to a best-guess
+					// `pt` equivalent.
+					const dx =
+						typeof attribs.dx === 'string' && attribs.dx.endsWith('em')
+							? Number.parseFloat(attribs.dx) * 12
+							: attribs.dx;
+					const dy =
+						typeof attribs.dy === 'string' && attribs.dy.endsWith('em')
+							? Number.parseFloat(attribs.dy) * 12
+							: attribs.dy;
+
+					console.log({ dx, dy });
+
 					return (
 						<Tspan
 							{...baseProps}
-							dx={attribs.dx}
-							dy={attribs.dy}
+							dx={dx}
+							dy={dy}
 							style={getElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Tspan>
 					);
+				}
 				case 'ul':
 					return (
 						<View {...baseProps} style={getElementStyle(attribs, chartStyle)}>
