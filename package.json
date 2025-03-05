@@ -27,11 +27,11 @@
 	},
 	"types": "./dist/index.d.ts",
 	"dependencies": {
-		"@react-pdf/types": "^2.8.2",
+		"@react-pdf/types": "^2.9.0",
 		"html-react-parser": "^5.2.2"
 	},
 	"peerDependencies": {
-		"@react-pdf/renderer": "^4.2.4",
+		"@react-pdf/renderer": "^4.3.0",
 		"react": "^18.3.1 || ^19.0.0",
 		"react-dom": "^18.3.1 || ^19.0.0"
 	},

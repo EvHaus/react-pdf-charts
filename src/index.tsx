@@ -257,10 +257,10 @@ export const convertHTMLToPDF = (
 							{...baseProps}
 							cx={attribs.cx}
 							cy={attribs.cy}
-							fr={attribs.fr}
 							fx={attribs.fx}
 							fy={attribs.fy}
 							id={attribs.id}
+							r={attribs.r}
 						>
 							{children}
 						</RadialGradient>
