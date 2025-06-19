@@ -1,6 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import { Document, Page } from '@react-pdf/renderer';
-import ReactPDF from '@react-pdf/renderer';
+import ReactPDF, { Document, Page } from '@react-pdf/renderer';
 import { VictoryBar, VictoryChart } from 'victory';
 import ReactPDFChart from '../src';
 

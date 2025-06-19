@@ -18,9 +18,9 @@ import {
 	Tspan,
 	View,
 } from '@react-pdf/renderer';
-import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
-import parse, { type Text as TextNode, domToReact } from 'html-react-parser';
+import type { Style, SVGPresentationAttributes } from '@react-pdf/types';
 import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
+import parse, { domToReact, type Text as TextNode } from 'html-react-parser';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { PRESENTATION_ATTRIBUTES } from './constants';

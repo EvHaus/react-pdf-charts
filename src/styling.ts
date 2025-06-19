@@ -1,15 +1,15 @@
 import { StyleSheet } from '@react-pdf/renderer';
-import type { SVGPresentationAttributes, Style } from '@react-pdf/types';
+import type { Style, SVGPresentationAttributes } from '@react-pdf/types';
 import { BASE_FONT_SIZE } from './constants';
 import type { PropsType, TagElementType } from './types';
 import { convertUnits } from './utils';
 
 const styles = StyleSheet.create({
 	'recharts-default-legend': {
-		justifyContent: 'center',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		gap: 8,
+		justifyContent: 'center',
 	},
 	'recharts-legend-item': {
 		flexDirection: 'row',

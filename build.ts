@@ -30,4 +30,4 @@ async function build() {
 	return console.debug(`✅ DONE! ${stdoutStr}`);
 }
 
-build();
+await build();

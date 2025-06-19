@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import ReactPDF, { Page, Document } from '@react-pdf/renderer';
+import ReactPDF, { Document, Page } from '@react-pdf/renderer';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import ReactPDFChart from '../src/index.jsx';
 

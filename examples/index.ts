@@ -22,4 +22,6 @@ const main = async () => {
 	return console.debug('✅ /examples updated!');
 };
 
-main();
+await main();
+
+export {};

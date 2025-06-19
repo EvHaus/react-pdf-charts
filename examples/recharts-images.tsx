@@ -1,44 +1,43 @@
 import { fileURLToPath } from 'node:url';
-import { Document, Page } from '@react-pdf/renderer';
-import ReactPDF from '@react-pdf/renderer';
+import ReactPDF, { Document, Page } from '@react-pdf/renderer';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import ReactPDFChart from '../src';
 
 const data = [
 	{
+		amt: 2400,
 		name: 'Page A',
 		pv: 2400,
-		amt: 2400,
 	},
 	{
+		amt: 2210,
 		name: 'Page B',
 		pv: 1398,
-		amt: 2210,
 	},
 	{
+		amt: 2290,
 		name: 'Page C',
 		pv: 9800,
-		amt: 2290,
 	},
 	{
+		amt: 2000,
 		name: 'Page D',
 		pv: 3908,
-		amt: 2000,
 	},
 	{
+		amt: 2181,
 		name: 'Page E',
 		pv: 4800,
-		amt: 2181,
 	},
 	{
+		amt: 2500,
 		name: 'Page F',
 		pv: 3800,
-		amt: 2500,
 	},
 	{
+		amt: 2100,
 		name: 'Page G',
 		pv: 4300,
-		amt: 2100,
 	},
 ];
 
@@ -59,8 +58,8 @@ const MyDocument = () => (
 						src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/661px-Red_Apple.jpg'
 						style={{
 							border: '2px solid black',
-							right: 10,
 							position: 'absolute',
+							right: 10,
 							top: 10,
 						}}
 						width='100'
