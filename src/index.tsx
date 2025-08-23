@@ -155,9 +155,11 @@ export const convertHTMLToPDF = (
 					// we can't simply render Defs here. Instead we need to collect
 					// them all and render them as part of the <Svg> element.
 					collectedDefs.push(children as React.JSX.Element);
+					// biome-ignore lint/complexity/noUselessFragments: Requires for react-pdf
 					return <></>;
 				case 'desc':
 					// Not supported in react-pdf. Rendering will be skipped.
+					// biome-ignore lint/complexity/noUselessFragments: Requires for react-pdf
 					return <></>;
 				case 'div':
 					return <View {...baseProps}>{children}</View>;
@@ -220,6 +222,7 @@ export const convertHTMLToPDF = (
 					);
 				case 'link':
 					// Not supported in react-pdf. Rendering will be skipped.
+					// biome-ignore lint/complexity/noUselessFragments: Requires for react-pdf
 					return <></>;
 				case 'path':
 					return (
@@ -325,6 +328,7 @@ export const convertHTMLToPDF = (
 					});
 				case 'title':
 					// Not supported in react-pdf. Rendering will be skipped.
+					// biome-ignore lint/complexity/noUselessFragments: Requires for react-pdf
 					return <></>;
 				case 'tspan':
 					// `dx` and `dy` attributes are not supported by react-pdf
