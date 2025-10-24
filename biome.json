@@ -35,10 +35,11 @@
 		}
 	},
 	"files": {
-		"experimentalScannerIgnores": [
-			"dist",
-			"node_modules",
-			"tsconfig.tsbuildinfo"
+		"includes": [
+			"**",
+			"!!**/dist",
+			"!!**/node_modules",
+			"!!**/tsconfig.tsbuildinfo"
 		]
 	},
 	"formatter": {
@@ -86,7 +87,6 @@
 			"nursery": {
 				"noFloatingPromises": "error",
 				"noImportCycles": "warn",
-				"useAnchorHref": "error",
 				"useSortedClasses": "error"
 			},
 			"performance": {
