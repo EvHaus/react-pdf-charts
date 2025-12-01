@@ -14,7 +14,7 @@
 
 ## The problem
 
-One of the best ways to generate PDFs is using [`react-pdf`](https://react-pdf.org/). Unfortunately `react-pdf` has [several](https://github.com/diegomura/react-pdf/issues/1720) [major](https://github.com/diegomura/react-pdf/issues/1271) [annoying](https://github.com/diegomura/react-pdf/issues/3004) [bugs](https://github.com/diegomura/react-pdf/issues/2017) that makes rendering SVG charts very difficult. This library attempts to ease the pain and provide a possible workaround until those bugs are fixed.
+One of the best ways to generate PDFs is using [`react-pdf`](https://react-pdf.org/). Unfortunately `react-pdf` has several bugs ([1](https://github.com/diegomura/react-pdf/issues/1271), [2](https://github.com/diegomura/react-pdf/issues/3004)) that makes rendering SVG charts very difficult. This library attempts to ease the pain and provide a possible workaround until those bugs are fixed.
 
 ## This solution
 
