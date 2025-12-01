@@ -10,7 +10,7 @@
 [![downloads][downloads-badge]][npmtrends]
 
 > [!WARNING]
-> This library is in early development and may not be production ready. Please give it a try and provide your feedback in the issues.
+> Due to [this limitation](https://github.com/recharts/recharts/issues/5997), this library does NOT support recharts v3+ ([more info](https://github.com/EvHaus/react-pdf-charts/issues/623)).
 
 ## The problem
 
