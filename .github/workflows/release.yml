@@ -30,7 +30,10 @@ jobs:
     - name: Build package
       run: bun run build
 
-    - name: Release
+    - uses: actions/setup-node@v6
+      with:
+       node-version: 24
+      name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
