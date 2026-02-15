@@ -86,7 +86,6 @@
 			},
 			"nursery": {
 				"noFloatingPromises": "error",
-				"noImportCycles": "warn",
 				"useSortedClasses": "error"
 			},
 			"performance": {
