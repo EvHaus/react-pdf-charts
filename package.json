@@ -28,7 +28,7 @@
 	"types": "./dist/index.d.ts",
 	"dependencies": {
 		"@react-pdf/types": "^2.9.1",
-		"html-react-parser": "^5.2.10"
+		"html-react-parser": "^6.0.0"
 	},
 	"peerDependencies": {
 		"@react-pdf/renderer": "^4.3.1",
