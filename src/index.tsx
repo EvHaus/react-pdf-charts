@@ -312,7 +312,6 @@ export const convertHTMLToPDF = (
 							{/* See comment above (in Defs case) */}
 							<Defs {...baseProps}>
 								{React.Children.map(collectedDefs, (def, idx) => (
-									// biome-ignore lint/suspicious/noArrayIndexKey: Key choice is not critical here
 									<React.Fragment key={`def-${idx}`}>{def}</React.Fragment>
 								))}
 							</Defs>

@@ -94,7 +94,6 @@
 				"noUnwantedPolyfillio": "error",
 				"useTopLevelRegex": "error"
 			},
-			"recommended": true,
 			"style": {
 				"noDescendingSpecificity": "error",
 				"noDoneCallback": "error",

@@ -85,4 +85,4 @@ const MyDocument = () => (
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-ReactPDF.render(<MyDocument />, `${__dirname}/recharts-composed.pdf`);
+await ReactPDF.render(<MyDocument />, `${__dirname}/recharts-composed.pdf`);

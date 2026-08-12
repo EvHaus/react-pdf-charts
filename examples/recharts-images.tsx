@@ -53,16 +53,16 @@ const MyDocument = () => (
 						<Line dataKey='pv' stroke='#8884d8' type='monotone' />
 					</LineChart>
 					<img
-						alt='Red Apple'
-						height='100'
-						src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/661px-Red_Apple.jpg'
+						alt='Canada Flag'
+						height='125'
+						src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/250px-Flag_of_Canada_%28Pantone%29.svg.png'
 						style={{
 							border: '2px solid black',
 							position: 'absolute',
 							right: 10,
 							top: 10,
 						}}
-						width='100'
+						width='250'
 					/>
 				</div>
 			</ReactPDFChart>
@@ -72,4 +72,4 @@ const MyDocument = () => (
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-ReactPDF.render(<MyDocument />, `${__dirname}/recharts-images.pdf`);
+await ReactPDF.render(<MyDocument />, `${__dirname}/recharts-images.pdf`);

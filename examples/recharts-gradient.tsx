@@ -45,4 +45,4 @@ const MyDocument = () => (
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
-ReactPDF.render(<MyDocument />, `${__dirname}/recharts-gradient.pdf`);
+await ReactPDF.render(<MyDocument />, `${__dirname}/recharts-gradient.pdf`);
