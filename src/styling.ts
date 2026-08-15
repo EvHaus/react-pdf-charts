@@ -33,10 +33,9 @@ export const getElementStyle = (
 	const style: Array<Style> = [];
 	if (attribs.class) {
 		for (const className of attribs.class.split(' ')) {
-			// @ts-expect-error Not sure how to fix this
-			if (className in styles) style.push(styles[className]);
+			if (className in styles)
+				style.push(styles[className as keyof typeof styles]);
 			if (chartStyle && className in chartStyle)
-				// @ts-expect-error Not sure how to fix this
 				style.push(chartStyle[className]);
 		}
 	}

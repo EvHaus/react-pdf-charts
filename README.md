@@ -122,7 +122,7 @@ Enables `react-pdf` [debugging mode](https://react-pdf.org/advanced#debugging) f
 
 ### chartStyle
 
-> `{}` | optional, some base `recharts` styles are applied by default
+> `Styles` | optional, some base `recharts` styles are applied by default
 
 An optional [Stylesheet](https://react-pdf.org/styling) that maps web CSS class names to whatever `react-pdf` styles you wish to replace those classes with.
 

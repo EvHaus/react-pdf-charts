@@ -1,3 +1,4 @@
+import type { Styles } from '@react-pdf/renderer';
 import {
 	Circle,
 	ClipPath,
@@ -18,7 +19,7 @@ import {
 	Tspan,
 	View,
 } from '@react-pdf/renderer';
-import type { Style, SVGPresentationAttributes } from '@react-pdf/types';
+import type { SVGPresentationAttributes } from '@react-pdf/types';
 import type { DOMNode, HTMLReactParserOptions } from 'html-react-parser';
 import parse, { domToReact, type Text as TextNode } from 'html-react-parser';
 import React from 'react';
@@ -35,7 +36,7 @@ const renderTextElement = ({
 	node,
 }: {
 	baseProps: SVGPresentationAttributes;
-	chartStyle?: Style;
+	chartStyle?: Styles;
 	children: string | React.JSX.Element | Array<React.JSX.Element>;
 	node: TagElementType;
 }) => {
@@ -62,7 +63,7 @@ const renderTextElement = ({
 // Converts a web-based SVG element to a react-pdf SVG element
 export const convertHTMLToPDF = (
 	children: React.ReactElement,
-	chartStyle?: Style,
+	chartStyle?: Styles,
 ) => {
 	const svgString = renderToStaticMarkup(children);
 
@@ -363,7 +364,7 @@ export const convertHTMLToPDF = (
 
 /**
  * Wrapper used to convert web-based SVG elements into `react-pdf` SVG elements.
- * @param chartStyle {Style} An optional [Stylesheet](https://react-pdf.org/styling) that maps web CSS class names to whatever `react-pdf` styles you wish to replace those classes with.
+ * @param chartStyle {Styles} An optional map of web CSS class names to [react-pdf styles](https://react-pdf.org/styling).
  * @param debug {boolean} Enables `react-pdf` [debugging mode](https://react-pdf.org/advanced#debugging) for the outer wrapper element.
  * @param style {Style} An optional [style](https://react-pdf.org/styling) that will get applied to the outer element of the wrapper component.
  * @example
