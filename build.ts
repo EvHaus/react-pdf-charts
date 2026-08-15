@@ -18,16 +18,16 @@ async function build() {
 	});
 
 	// Generate types
-	const { stdout, stderr } = await Bun.spawn([
-		'tsc',
-		'-p',
-		'tsconfig.build.json',
-	]);
-	const stdoutStr = await new Response(stdout).text();
-	const stderrStr = await new Response(stderr).text();
-	if (stderrStr) return console.error(stderrStr);
+	const { exitCode, stderr, stdout } = await Bun.$`tsc -p tsconfig.build.json`
+		.nothrow()
+		.quiet();
+	const stdoutStr = stdout.toString();
+	if (exitCode !== 0) {
+		console.error(stderr.toString() || stdoutStr);
+		process.exit(exitCode);
+	}
 
-	return console.debug(`✅ DONE! ${stdoutStr}`);
+	console.debug(`✅ DONE! ${stdoutStr}`);
 }
 
 await build();
