@@ -83,10 +83,21 @@ export const getElementStyle = (
 	return style;
 };
 
-// For SVG elements this will process inline styles into something react-pdf
-// can understand
-export const getSvgElementStyle = (attribs: TagElementType['attribs']) => {
+// For SVG elements this will process class names and inline styles into
+// something react-pdf can understand
+export const getSvgElementStyle = (
+	attribs: TagElementType['attribs'],
+	chartStyle?: PropsType['chartStyle'],
+) => {
 	const style: SVGPresentationAttributes = {};
+
+	if (attribs.class) {
+		for (const className of attribs.class.split(' ')) {
+			if (chartStyle && className in chartStyle) {
+				Object.assign(style, chartStyle[className]);
+			}
+		}
+	}
 
 	// Apply inline styles that react-pdf supports
 	if (attribs.style) {

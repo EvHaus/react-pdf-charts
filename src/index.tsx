@@ -144,7 +144,7 @@ export const convertHTMLToPDF = (
 							cx={attribs.cx}
 							cy={attribs.cy}
 							r={attribs.r}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Circle>
@@ -172,13 +172,20 @@ export const convertHTMLToPDF = (
 							cy={attribs.cy}
 							rx={attribs.rx}
 							ry={attribs.ry}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Ellipse>
 					);
 				case 'g':
-					return <G {...baseProps}>{children}</G>;
+					return (
+						<G
+							{...baseProps}
+							style={Object.assign({}, ...getElementStyle(attribs, chartStyle))}
+						>
+							{children}
+						</G>
+					);
 				case 'img':
 					return (
 						<Image
@@ -199,7 +206,7 @@ export const convertHTMLToPDF = (
 					return (
 						<Line
 							{...baseProps}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 							x1={attribs.x1}
 							x2={attribs.x2}
 							y1={attribs.y1}
@@ -230,7 +237,7 @@ export const convertHTMLToPDF = (
 						<Path
 							{...baseProps}
 							d={attribs.d}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Path>
@@ -240,7 +247,7 @@ export const convertHTMLToPDF = (
 						<Polygon
 							{...baseProps}
 							points={attribs.points}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Polygon>
@@ -250,7 +257,7 @@ export const convertHTMLToPDF = (
 						<Polyline
 							{...baseProps}
 							points={attribs.points}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 						>
 							{children}
 						</Polyline>
@@ -276,7 +283,7 @@ export const convertHTMLToPDF = (
 							height={attribs.height}
 							rx={attribs.rx}
 							ry={attribs.ry}
-							style={getSvgElementStyle(attribs)}
+							style={getSvgElementStyle(attribs, chartStyle)}
 							width={attribs.width}
 							x={attribs.x}
 							y={attribs.y}
