@@ -54,5 +54,18 @@
 		"semantic-release": "25.0.9",
 		"typescript": "7.0.2",
 		"victory": "37.3.6"
+	},
+	"release": {
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			"@semantic-release/npm",
+			[
+				"@semantic-release/github",
+				{
+					"successCommentCondition": "<% return issue.user.type !== 'Bot'; %>"
+				}
+			]
+		]
 	}
 }
