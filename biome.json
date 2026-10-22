@@ -85,8 +85,7 @@
 				"useUniqueElementIds": "off"
 			},
 			"nursery": {
-				"noFloatingPromises": "error",
-				"useSortedClasses": "error"
+				"noFloatingPromises": "error"
 			},
 			"performance": {
 				"noBarrelFile": "warn",
@@ -147,6 +146,11 @@
 			}
 		}
 	},
+	"markdown": {
+		"formatter": {
+			"enabled": false
+		}
+	},
 	"overrides": [
 		{
 			"assist": {
@@ -159,5 +163,10 @@
 		"clientKind": "git",
 		"enabled": true,
 		"useIgnoreFile": true
+	},
+	"yaml": {
+		"formatter": {
+			"enabled": false
+		}
 	}
 }
