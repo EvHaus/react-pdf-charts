@@ -53,7 +53,7 @@
 		"recharts": "2.15.4",
 		"semantic-release": "25.0.9",
 		"typescript": "7.0.2",
-		"victory": "37.3.6"
+		"victory": "37.4.1"
 	},
 	"release": {
 		"plugins": [
