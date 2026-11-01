@@ -2,16 +2,16 @@
 	"name": "react-pdf-charts",
 	"version": "0.0.0-development",
 	"description": "Allows SVG-based React charts to be rendered in react-pdf",
-	"license": "MIT",
-	"author": "Ev Haus",
 	"homepage": "https://github.com/EvHaus/react-pdf-charts",
+	"bugs": {
+		"url": "https://github.com/EvHaus/react-pdf-charts/issues"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/EvHaus/react-pdf-charts.git"
 	},
-	"bugs": {
-		"url": "https://github.com/EvHaus/react-pdf-charts/issues"
-	},
+	"license": "MIT",
+	"author": "Ev Haus",
 	"type": "module",
 	"exports": {
 		".": {
@@ -19,41 +19,19 @@
 			"import": "./dist/index.js"
 		}
 	},
+	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
 		"biome:check": "biome check --write",
 		"build": "NODE_ENV=production bun ./build.ts",
-		"lint": "bun typescript && bun biome:check && bun packagelint",
-		"packagelint": "prettier-package-json --use-tabs --write ./package.json",
+		"lint": "bun typescript && bun biome:check",
 		"semantic-release": "semantic-release",
 		"start": "bun examples/index.ts",
 		"start:dev": "bun --watch examples/index.ts",
 		"test": "bun lint",
 		"typescript": "tsc --noEmit"
-	},
-	"types": "./dist/index.d.ts",
-	"dependencies": {
-		"@react-pdf/types": "^2.9.1",
-		"html-react-parser": "^6.0.0"
-	},
-	"peerDependencies": {
-		"@react-pdf/renderer": "^4.3.1",
-		"react": "^18.3.1 || ^19.2.0",
-		"react-dom": "^18.3.1 || ^19.2.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.6.4",
-		"@types/react": "19.3.0",
-		"@types/react-dom": "19.3.0",
-		"bun-types": "1.4.4",
-		"lefthook": "2.2.2",
-		"prettier-package-json": "2.8.0",
-		"recharts": "2.15.4",
-		"semantic-release": "25.0.9",
-		"typescript": "7.0.2",
-		"victory": "37.4.1"
 	},
 	"release": {
 		"plugins": [
@@ -67,5 +45,25 @@
 				}
 			]
 		]
+	},
+	"dependencies": {
+		"@react-pdf/types": "^2.9.1",
+		"html-react-parser": "^6.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.6.4",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
+		"bun-types": "1.4.4",
+		"lefthook": "2.2.2",
+		"recharts": "2.15.4",
+		"semantic-release": "25.0.9",
+		"typescript": "7.0.2",
+		"victory": "37.4.1"
+	},
+	"peerDependencies": {
+		"@react-pdf/renderer": "^4.3.1",
+		"react": "^18.3.1 || ^19.2.0",
+		"react-dom": "^18.3.1 || ^19.2.0"
 	}
 }
